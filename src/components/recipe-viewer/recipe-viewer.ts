@@ -1,9 +1,7 @@
 import { Component, OnInit, OnChanges, OnDestroy, Input, ViewChild, ChangeDetectorRef } from '@angular/core'
-import { WebAudioPlayer } from '../../providers/web-audio-player'
-import { Util } from '../../providers/util'
-import { AuthService } from '../../providers/auth-service'
-import { RecipeService } from '../../providers/recipe-service'
-import { Recipe, RecipeAssets, RespeakTimeLine, TimeLine, Slide } from '../../providers/data-service'
+import { WebAudioPlayerProvider } from '../../providers/web-audio-player/web-audio-player'
+import { UtilProvider } from '../../providers/util/util'
+import { Recipe, RecipeAssets, RespeakTimeLine, TimeLine, Translation, Slide } from '../../app/types'
 import { Subscription } from 'rxjs/Subscription'
 import { GestateComponent } from '../../components/gestate/gestate'
 import { RecipeSlidesComponent } from '../../components/recipe-slides/recipe-slides'
@@ -11,12 +9,12 @@ import { RecipeSlidesComponent } from '../../components/recipe-slides/recipe-sli
 @Component({
   selector: 'recipe-viewer',
   templateUrl: 'recipe-viewer.html',
-  providers: [WebAudioPlayer]
+  providers: [WebAudioPlayerProvider]
 })
 export class RecipeViewerComponent implements OnChanges, OnInit, OnDestroy {
-  @Input() recipeId: string
   @Input() recipeAssets: RecipeAssets
   @Input() selectedTranslation: string = null
+  @Input() translations: Translation[] = []
   @ViewChild('slides') slides: RecipeSlidesComponent
   @ViewChild(GestateComponent) gestate: GestateComponent
   mediasetAssets: Slide[]
@@ -34,10 +32,13 @@ export class RecipeViewerComponent implements OnChanges, OnInit, OnDestroy {
   /* 
     C O N S T R U C T O R
   */
-  constructor(public player: WebAudioPlayer,
-      public util: Util, public recipeService: RecipeService,
-      public authService: AuthService,
+  constructor(public player: WebAudioPlayerProvider,
+      public util: UtilProvider,
       public ref: ChangeDetectorRef) {
+  }
+
+  debug(...args) {
+    console.log('recipeviewer:', ...args)
   }
 
   ngOnChanges(changes) {
@@ -80,9 +81,9 @@ export class RecipeViewerComponent implements OnChanges, OnInit, OnDestroy {
       let aurl = URL.createObjectURL(this.recipeAssets.audio)
       this._initAudio(aurl)
     } else {
-      let transdata = await this.recipeService.getTranslation(this.selectedTranslation)
+      let transdata: Translation = this.getTranslation(this.selectedTranslation)
       console.log('view: Using translation audio', transdata)
-      let eTimeline = this.recipeService.estimateRespeakTimeline(this.recipeData.timeLine, transdata.translation.timeLine)
+      let eTimeline = this.estimateRespeakTimeline(this.recipeData.timeLine, transdata.timeLine)
       this.timeLine = eTimeline.map(x => x.t/1000)
       let aurl = URL.createObjectURL(transdata.audio)
       this._initAudio(aurl)
@@ -161,6 +162,34 @@ export class RecipeViewerComponent implements OnChanges, OnInit, OnDestroy {
     }
     this.isPlaying = !this.isPlaying
     this.ref.detectChanges()
+  }
+
+  estimateRespeakTimeline(timeline: TimeLine, respT: RespeakTimeLine): TimeLine {
+    this.debug('input timeline', timeline)
+    this.debug('respeak timeline', respT)
+    let newTl: TimeLine = []
+    for (let recFrame of respT) {
+      let srcStart = recFrame.source.start
+      let srcEnd = recFrame.source.end
+      let srcLen = srcEnd - srcStart
+      let secStart = recFrame.secondary.start
+      let secEnd = recFrame.secondary.end
+      let secLen = secEnd - secStart
+      let timeDelta = secLen / srcLen
+      // only get slide changes that happened within this recording segment
+      let timeSource = timeline.filter(x => x.t >= srcStart && x.t < srcEnd)
+      for (let fp of timeSource) {
+        let rp = fp.t - srcStart
+        let nt = ~~(secStart + (rp * timeDelta))
+        newTl.push({t: nt})
+      }
+    }
+    this.debug('estimated output', newTl)
+    return newTl
+  }
+
+  getTranslation(translationId: string): Translation {
+    return this.translations.find((x) => x._id === translationId)
   }
 
 }

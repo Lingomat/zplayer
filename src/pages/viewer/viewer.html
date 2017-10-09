@@ -6,8 +6,8 @@
 
 <ion-content>
   <recipe-viewer *ngIf="showViewer" 
-      [recipeId]="recipeId" 
       [recipeAssets]="recipeAssets"
+      [translations]="translations"
       [selectedTranslation]="selectedTranslation">
   </recipe-viewer>
   
@@ -21,6 +21,7 @@
 
   <translation-selector *ngIf="showViewer"
       [recipe]="recipe"
+      [translations]="translations"
       [selectedTranslation]="selectedTranslation"
       [enableAdd]="false"
       (selected)="translationSelected($event)">

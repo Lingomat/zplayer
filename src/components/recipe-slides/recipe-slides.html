@@ -1,0 +1,24 @@
+
+<div class="swiper-container main" #mainSwipe>
+    <ion-icon [@flyInLeft]="animstate" *ngIf="canSlidePrev()" class="navbutton left"></ion-icon>  
+    <ion-icon [@flyInRight]="animstate" *ngIf="canSlideNext()" class="navbutton right"></ion-icon>
+    <div class="swiper-wrapper">
+      <div *ngFor="let slide of slides; let i = index" class="swiper-slide"
+          [style.background-image]="slide.bg">
+          <video *ngIf="slide.type === 'video'" autoplay #videoplayer
+              [id]="i"
+              [src]="this.videoSrc.get(i)"></video>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<div class="swiper-container thumb" #thumbSwipe>
+    <ion-icon [@flyInLeft]="animstate" *ngIf="canSlidePrev()" class="navbutton left"></ion-icon>  
+    <ion-icon [@flyInRight]="animstate" *ngIf="canSlideNext()" class="navbutton right"></ion-icon>
+    <div class="swiper-wrapper">
+      <div *ngFor="let slide of slides; let i = index" class="swiper-slide"
+          [style.background-image]="slide.bg">
+      </div>
+    </div>
+</div>

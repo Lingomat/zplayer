@@ -1,6 +1,6 @@
-import { Component, NgZone, ViewChild, Input, Output, EventEmitter, ElementRef, OnChanges, OnDestroy } from '@angular/core'
-import { Util } from '../../providers/util'
-import { Gesture } from '../../providers/data-service'
+import { Component, NgZone, ViewChild, Input, ElementRef, OnChanges, OnDestroy } from '@angular/core'
+import { UtilProvider } from '../../providers/util/util'
+import { Gesture } from '../../app/types'
 import Sketch from 'sketch-js'
 
 type Milliseconds = number
@@ -28,7 +28,7 @@ export class GestateComponent implements OnChanges, OnDestroy {
   lastTime: number
   lastPaaaaarp: {time: number, particles: number, x: number, y: number}
   movingPos: {x: number, y: number}
-  constructor(public util: Util, public zone: NgZone) {
+  constructor(public util: UtilProvider, public zone: NgZone) {
 
   }
   ngOnChanges(changes) {
@@ -50,8 +50,8 @@ export class GestateComponent implements OnChanges, OnDestroy {
   resizeCanvas() {
     this.overlayWidth = this.slidesize.width+'px'
     this.overlayHeight = this.slidesize.height+'px'
-    let width = this.slidesize.width
-    let height = this.slidesize.height
+    //let width = this.slidesize.width
+    //let height = this.slidesize.height
     // this.canvas.width = ~~(width * window.devicePixelRatio)
     // this.canvas.height = ~~(height * window.devicePixelRatio)
     // this.canvas.style.width = width+'px'
@@ -113,7 +113,7 @@ export class GestateComponent implements OnChanges, OnDestroy {
   lastElapsed: Milliseconds
   playTick() {
     let getCurrentGestureByTime = (nt: number): Gesture => {
-      let fg = null
+      //let fg = null
       for (let f = this.gestures.length -1 ; f >= 0 ; --f) {
         let st = this.gestures[f].timeOffset 
         let et = st + this.gestures[f].timeLine[this.gestures[f].timeLine.length-1].t
@@ -331,7 +331,7 @@ export class GestateComponent implements OnChanges, OnDestroy {
     //let COLOURS = [ '#69D2E7', '#A7DBD8', '#E0E4CC', '#F38630', '#FA6900', '#FF4E50', '#F9D423' ]
     let COLOURS = [ "#BF360C", "#329b34", "#ff5722", "#E9E2D7", "#3e272e", "#5d4037"]
     let particles = []
-    let pool = []
+    //let pool = []
     let demo = Sketch.create({
       globals: false,
       container: this.wrapperElement.nativeElement,
@@ -343,7 +343,7 @@ export class GestateComponent implements OnChanges, OnDestroy {
       height: this.slidesize.height
     })
     demo.spawn = ( x, y ) => {
-      let particle, theta, force
+      let particle
       if ( particles.length >= MAX_PARTICLES ) {
         particles.shift()
         //pool.push( particles.shift() )
