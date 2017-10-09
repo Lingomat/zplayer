@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <recipe-viewer *ngIf="showViewer" 
+      [recipeId]="recipeId" 
+      [recipeAssets]="recipeAssets"
+      [selectedTranslation]="selectedTranslation">
+  </recipe-viewer>
+  
+  <div class="logospinner"> 
+    <div class="applogo en" 
+      (click)="pressedLogIn()">
+    </div>
+    <ion-spinner *ngIf="syncing" class="syncspinner" name="crescent">
+    </ion-spinner>
+  </div>
+
+  <translation-selector *ngIf="showViewer"
+      [recipe]="recipe"
+      [selectedTranslation]="selectedTranslation"
+      [enableAdd]="false"
+      (selected)="translationSelected($event)">
+  </translation-selector>
+
+</ion-content>

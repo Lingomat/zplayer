@@ -9,15 +9,21 @@
       "es2015"
     ],
     "module": "es2015",
-    "moduleResolution": "node",
     "sourceMap": true,
-    "target": "es5"
+    "moduleResolution": "node",
+    "target": "es5",
+    "typeRoots": [
+      "../node_modules/@types/**"
+    ]
   },
   "include": [
     "src/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "functions",
+    "www",
+    "plugins"
   ],
   "compileOnSave": false,
   "atom": {

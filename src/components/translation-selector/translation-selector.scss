@@ -1,0 +1,26 @@
+translation-selector {
+  .transselector {
+    width: 52px;
+    height: 52px;
+    position: relative;
+    ion-icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      line-height: 52px;
+      font-size: 6rem;
+      color: color($colors, favorite);
+      
+    }
+    ion-badge {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      filter: drop-shadow( 2px 2px 3px color($colors, dark) );
+    }
+  }
+}

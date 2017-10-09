@@ -1,0 +1,17 @@
+<recipe-slides  #slides
+    [slides]="mediasetAssets"
+    (onTransitionStart)="slideChangeStart($event)">
+</recipe-slides>
+ <gestate #overlayinator
+    [slidesize]="slidesize">
+  </gestate>
+
+<ion-fab *ngIf="finishedLoading" center bottom class="huge">
+  <button ion-fab 
+      [color]="isPlaying ? 'secondary' : 'favorite'"
+      (click)="pressedPlay()">
+    <ion-icon [name]="isPlaying ? 'pause' : 'play'">
+    </ion-icon>
+  </button>
+  <div class="elapsed">{{elapsed}}</div>
+</ion-fab>

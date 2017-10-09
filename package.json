@@ -1,8 +1,8 @@
 {
   "name": "zplayer",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Mat Bettinson",
+  "homepage": "http://www.aikuma.org/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -34,5 +34,5 @@
     "@ionic/app-scripts": "3.0.0",
     "typescript": "2.3.4"
   },
-  "description": "An Ionic project"
+  "description": "A public PWA for playing Zahwa recipes"
 }

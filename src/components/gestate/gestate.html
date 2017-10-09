@@ -1,0 +1,7 @@
+<div class="overlaywrapper" #overlaywrapper
+    [style.width]="overlayWidth"
+    [style.height]="overlayHeight"
+    (touchstart)="touchStart($event)"
+    (touchmove)="touchMove($event)"
+    (touchend)="touchEnd($event)">
+</div>

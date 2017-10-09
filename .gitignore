@@ -5,6 +5,7 @@
 *.sw[mnpcod]
 *.log
 *.tmp
+*.apk
 *.tmp.*
 log.txt
 *.sublime-project
@@ -13,10 +14,10 @@ log.txt
 npm-debug.log*
 
 .idea/
-.sourcemaps/
 .sass-cache/
 .tmp/
 .versions/
+.sourcemaps/
 coverage/
 dist/
 node_modules/
@@ -28,6 +29,8 @@ plugins/
 plugins/android.json
 plugins/ios.json
 www/
+src/build-config.ts
+build-config.json
 $RECYCLE.BIN/
 
 .DS_Store

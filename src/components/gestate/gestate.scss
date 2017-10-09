@@ -1,0 +1,19 @@
+gestate {
+    div.overlaywrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 10;
+        canvas.sketch {
+            position: absolute;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 12;
+        }
+    }
+}
