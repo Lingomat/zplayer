@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core'
 import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular'
-import { DataProvider, RecipeBundle } from '../../providers/data/data'
+import { DataProvider, RecipeBundle, RecipeComplete } from '../../providers/data/data'
 import { TranslationAction } from '../../components/translation-selector/translation-selector'
 import { Recipe, RecipeAssets, Translation } from '../../app/types'
 
@@ -28,7 +28,7 @@ export class ViewerPage implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
+    this.init()
   }
 
   ngOnDestroy(): void {
@@ -36,7 +36,7 @@ export class ViewerPage implements OnInit, OnDestroy {
   }
 
   async init() {
-    let rb: RecipeBundle = await this.data.getRecipeAssets(this.handleId)
+    let rb: RecipeComplete = await this.data.getCompleteRecipe(this.handleId)
     this.recipeAssets = rb.recipeAssets
     this.recipe = this.recipeAssets.recipeData
     this.translations = rb.translations
