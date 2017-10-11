@@ -1,4 +1,4 @@
-page-public-view {
+page-viewer {
   ion-fab-list {
     width: 54px;
   }
@@ -36,9 +36,32 @@ page-public-view {
   translation-selector {
     .transselector {
       position: absolute;
-      left: 5px;
-      bottom: 3px;
+      left: 10px;
+      top: 5px;
     }
   }
+
+  .cooking {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .message {
+      position: absolute;
+      height: 100%;
+      top: 140px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+  
+
+  
 
 }

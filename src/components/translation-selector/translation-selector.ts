@@ -1,7 +1,8 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core'
 import { PopoverController, ActionSheetOptions } from 'ionic-angular'
-import { Language, Recipe, Translation } from '../../app/types'
+import { Language, Recipe, Translation, PublicUserData } from '../../app/types'
 import { TranslateService } from '@ngx-translate/core'
+import { TransPopover } from './trans-popover'
 
 export interface TranslationAction {
   action: "add" | "select",
@@ -15,6 +16,7 @@ export interface TranslationAction {
 export class TranslationSelectorComponent implements OnInit {
   @Input('recipe') recipe: Recipe
   @Input('enableAdd') enableAdd: boolean = false
+  @Input('users') users: {[key: string]: PublicUserData} = {}
   @Input('selectedTranslation') selectedTranslation: string = ''
   @Input('translations') translations: Translation[] = []
   @Output() selected: EventEmitter<TranslationAction> = new EventEmitter<TranslationAction>()
@@ -52,10 +54,11 @@ export class TranslationSelectorComponent implements OnInit {
   }
 
   clickButton(event): void {
-    let popover = this.popoverCtrl.create('TranslationSelectorPopoverPage', 
+    let popover = this.popoverCtrl.create(TransPopover, 
       {
         enableAdd: this.enableAdd,
         recipe: this.recipe,
+        users: this.users,
         selectedTranslation: this.selectedTranslation,
         translations: this.translations
       }, 

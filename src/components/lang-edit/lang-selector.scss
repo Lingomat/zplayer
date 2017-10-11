@@ -1,0 +1,26 @@
+lang-selector {
+  .langselwrapper {
+    padding: 5px;
+  }
+  .tagwrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .input-wrapper ion-label.label-md {
+    margin-top: 2px;
+  }
+
+  .inputrow {
+    display: flex;
+    flex-direction: row;
+    ion-item {
+      padding-left: 0px;
+      flex-grow: 1;
+    }
+  }
+  .subheadp {
+    margin-top: 7px;
+  }
+
+}

@@ -1,8 +1,8 @@
 import { Component, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core'
 import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular'
-import { DataProvider, RecipeBundle, RecipeComplete } from '../../providers/data/data'
+import { DataProvider, RecipeComplete  } from '../../providers/data/data'
 import { TranslationAction } from '../../components/translation-selector/translation-selector'
-import { Recipe, RecipeAssets, Translation } from '../../app/types'
+import { Recipe, RecipeAssets, Translation, PublicUserData } from '../../app/types'
 
 @IonicPage({
   segment: 'r/:handleId'
@@ -21,6 +21,14 @@ export class ViewerPage implements OnInit, OnDestroy {
   showViewer: boolean = false
   selectedTranslation: string = null
   translations: Translation[] = []
+  lottieConfig = {
+    path: './assets/anim/cooking_app.json',
+    autoplay: true,
+    loop: true
+  }
+  anim: any
+  workingMessage: string = null
+  users: {[key: string]: PublicUserData}
   constructor(public navCtrl: NavController,
       params: NavParams, public data: DataProvider,
       public popoverCtrl: PopoverController, public ref: ChangeDetectorRef) {
@@ -36,7 +44,10 @@ export class ViewerPage implements OnInit, OnDestroy {
   }
 
   async init() {
+    this.workingMessage = "VIEWER.LOADING"
     let rb: RecipeComplete = await this.data.getCompleteRecipe(this.handleId)
+    this.users = rb.users
+    this.workingMessage = null
     this.recipeAssets = rb.recipeAssets
     this.recipe = this.recipeAssets.recipeData
     this.translations = rb.translations
@@ -61,6 +72,11 @@ export class ViewerPage implements OnInit, OnDestroy {
     if (transaction.action === 'select') {
       this.selectedTranslation = transaction.translation === "source" ? "source" : transaction.translation._id
     }
+  }
+
+  handleAnimation(anim: any) {
+    this.anim = anim
+    this.anim.setSpeed(0.75)
   }
 
 }

@@ -1,0 +1,75 @@
+page-trans-popover {
+
+  .translation.item-md {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    //height: 50px;
+    padding: 0px 5px 0px 5px;
+    .itemcontent {
+      display: flex;
+      flex-direction: row;
+      .textlines {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+      button.button-md {
+        height: 35px;
+        margin: 0px;
+      }
+      ion-icon.icon-md {
+        font-size: 4rem;
+      }
+    }
+    div.item-inner {
+      padding-right: 0px;
+    }
+    div.input-wrapper > ion-label.label-md {
+      margin: 4px 0px 1px 0px;
+    }
+    ion-avatar {
+      filter: drop-shadow( 1px 1px 2px color($colors, dark) );
+    }
+  }
+  .translation.item-md.original {
+    border-bottom: 2px solid color($colors, primary);
+  }
+  .translation.item-md.original .item-inner {
+    border-bottom: none;
+  }
+  .translation.item-md.selected {
+    // background-color: rgba(255,0,0,0.2);
+    border-left: 2px solid color($colors, primary);
+  }
+
+  ion-content.content-md {
+    padding: 5px;
+    div.scroll-content {
+      overflow-y: hidden;
+    }
+  }
+
+  .translationlist {
+    .buttonrow {
+      display: flex;
+      flex-basis: row;
+      align-items: center;
+      button {
+        margin-left: 2px;
+      }
+      margin-top: 3px;
+      margin-bottom: 3px;
+      .textline {
+        margin-left: 10px;
+      }
+    }
+  }
+
+}
+
+
+.popover-md.translationselect .popover-content {
+  min-width: 400px;
+  border-radius: 5px;
+}

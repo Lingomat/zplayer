@@ -75,6 +75,12 @@ export interface Translation {
   audio?: Blob
 }
 
+export interface PublicUserData {
+  userName: string
+  photoURL: string
+  location: string
+  joined: number
+}
 
 export interface TimeLine extends Array<{t: number}>{}
 

@@ -1,0 +1,25 @@
+lang-edit {
+  .chipwrap {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
+  .spacer {
+    margin-top: 15px;
+  }
+  .noindent {
+    padding-left: 0px;
+  }
+
+  .inputrow {
+    display: flex;
+    flex-direction: row;
+    .noindent {
+      flex-grow: 1
+    }
+  }
+  .fab[mini] {
+    margin: 0px;
+  }
+
+}

@@ -1,0 +1,65 @@
+<ion-content>
+
+  <div class="translationlist">
+    <ion-item class="translation original"
+        [ngClass]="{selected: originalSelected()}"
+        (click)="selectTranslation('source')">
+      <ion-avatar item-left>
+        <img [src]="getImage(recipe.author)"/>
+      </ion-avatar>
+      <div class="itemcontent">
+        <div class="textlines">
+          <lang-edit 
+              [languages]="recipe.languages" 
+              [color]="originalSelected() ? 'primary' : 'favorite'"
+              nohead="true" readonly="true">
+          </lang-edit>
+          <div>
+            <span class="subheadncb">{{ 'TRANSLIST.ORIGINALBY' | translate}}</span>
+            <span class="paragraphb">{{ getName(recipe.author) }}</span>
+          </div>
+        </div>
+        <button ion-button icon-only clear color="dark"
+            (click)="selectTranslation()">
+          <ion-icon name="play">
+          </ion-icon>
+        </button>
+      </div>
+    </ion-item>
+    <ion-item *ngFor="let trans of translations" 
+        class="translation"
+        [ngClass]="{selected: trans._id === selectedTranslation}"
+        (click)="selectTranslation(trans)">
+      <ion-avatar item-left>
+        <img [src]="getImage(trans.author)"/>
+      </ion-avatar>
+      <div class="itemcontent">
+        <div class="textlines">
+          <lang-edit 
+              [languages]="trans.languages" 
+              [color]="trans._id === selectedTranslation ? 'primary' : 'favorite'"
+              nohead="true" readonly="true">
+          </lang-edit>
+          <div>
+            <span class="subheadnc">{{ 'TRANSLIST.BY' | translate }}</span>
+            <span class="paragraphb">{{ getName(trans.author) }}</span>
+          </div>
+        </div>
+        <button ion-button icon-only clear color="dark">
+          <ion-icon name="play">
+          </ion-icon>
+        </button>
+      </div>
+    </ion-item>
+    <div *ngIf="enableAdd" class="buttonrow">
+      <button ion-fab
+          (click)="addTranslation()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <div class="headline2 textline" (click)="addTranslation()">
+        {{ 'TRANSLIST.ADD' | translate }}
+      </div>
+    </div>
+  </div>
+
+</ion-content>

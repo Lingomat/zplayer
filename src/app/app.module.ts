@@ -14,14 +14,24 @@ import { AndroidPage } from '../pages/android/android'
 import { GestateComponent } from '../components/gestate/gestate'
 import { RecipeSlidesComponent } from '../components/recipe-slides/recipe-slides'
 import { RecipeViewerComponent } from '../components/recipe-viewer/recipe-viewer'
+
 import { TranslationSelectorComponent } from '../components/translation-selector/translation-selector'
+import { TransPopover } from '../components/translation-selector/trans-popover'
+
+import { LangEditComponent } from '../components/lang-edit/lang-edit'
+import { LangPopover } from '../components/lang-edit/lang-popover'
+import { LangSelectorComponent } from '../components/lang-edit/lang-selector'
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { UtilProvider } from '../providers/util/util'
 import { WebAudioPlayerProvider } from '../providers/web-audio-player/web-audio-player'
 import { AudioProvider } from '../providers/audio/audio'
-import { GlobalsProvider } from '../providers/globals/globals';
+import { GlobalsProvider } from '../providers/globals/globals'
+
+import { HighlightPipeModule } from '../pipes/highlight/highlight.module'
+
+import { LottieAnimationViewModule } from 'ng-lottie'
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -37,10 +47,16 @@ export function createTranslateLoader(http: Http) {
     GestateComponent,
     RecipeSlidesComponent,
     RecipeViewerComponent,
-    TranslationSelectorComponent
+    TranslationSelectorComponent,
+    TransPopover,
+    LangEditComponent,
+    LangPopover,
+    LangSelectorComponent
   ],
   imports: [
     BrowserModule,
+    HighlightPipeModule,
+    LottieAnimationViewModule.forRoot(),
     IonicModule.forRoot(MyApp, {}, {
       links: [
         { component: ViewerPage, name: 'view', segment: 'r/:handleId'}
@@ -62,7 +78,9 @@ export function createTranslateLoader(http: Http) {
     HomePage,
     ViewerPage,
     AboutPage,
-    AndroidPage
+    AndroidPage,
+    TransPopover,
+    LangPopover
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

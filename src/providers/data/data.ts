@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import 'rxjs/add/operator/map'
-import { RecipeAssets, Recipe, Slide, MediaFrame, Translation } from '../../app/types'
+import { RecipeAssets, Recipe, Slide, MediaFrame, PublicUserData, Translation } from '../../app/types'
 import { DomSanitizer, SafeUrl, SafeStyle } from '@angular/platform-browser'
 import { Http, Response, Headers, RequestOptions } from '@angular/http'
 import { GlobalsProvider } from '../globals/globals'
@@ -9,32 +9,20 @@ import { Observable } from 'rxjs/Observable'
 export interface RecipeComplete {
   recipeAssets: RecipeAssets
   translations: Translation[]
+  users: {[key: string]: PublicUserData}
 }
 
 export interface RecipeBundle {
   recipe: Recipe
   translations: Translation[]
   urlMap: {[key: string]: string}
+  userMap: {[key: string]: PublicUserData}
 }
-
-// export interface RecipeAssets {
-//   recipeData: Recipe
-//   audio: Blob
-//   slides: Slide[]
-// }
-
-// export interface Slide {
-//   imageId: string,
-//   type: string,
-//   bg: SafeStyle
-//   image?: Blob,
-//   video?: Blob
-//   videoId?: string
-// }
 
 @Injectable()
 export class DataProvider {
   urlFetchTimeout: number = 100
+  isoLangCache: {i: string, n: string}[] = null
   constructor(public http: Http, public sanitizer: DomSanitizer, public globals: GlobalsProvider) {
   }
 
@@ -44,7 +32,8 @@ export class DataProvider {
     let t: Translation[] = await this.makeTranslations(bundle)
     return {
       recipeAssets: ra,
-      translations: t
+      translations: t,
+      users: bundle.userMap
     }
   }
 
@@ -77,7 +66,7 @@ export class DataProvider {
       if (mf.video) {
         s.videoId = mf.video
         let lvurl = bundle.urlMap[mf.video]
-        s.video = await this._rawFetchFile(iurl, 60)
+        s.video = await this._rawFetchFile(lvurl, 60)
       }
       return s
     }
@@ -153,12 +142,12 @@ export class DataProvider {
           reject(xhr.status)
         }
       }
-      xhr.onprogress = (oEvent) => {
-        if (oEvent.lengthComputable) {
-          var percentComplete = oEvent.loaded / oEvent.total
-          //this.debug('_rawFetchFile() progress', percentComplete)
-        }
-      }
+      // xhr.onprogress = (oEvent) => {
+      //   if (oEvent.lengthComputable) {
+      //     var percentComplete = oEvent.loaded / oEvent.total
+      //     console.log('_rawFetchFile() progress', percentComplete)
+      //   }
+      // }
       xhr.onerror = (error) => {
         reject(xhr.status)
       }
@@ -179,6 +168,21 @@ export class DataProvider {
   sanitizeBackgroundImageURL (url: string): SafeStyle {
     let style = 'url('+url+')'
     return this.sanitizer.bypassSecurityTrustStyle(style)
+  }
+
+  // get iso languages from json file, cache results
+  getISOLanguages(): Promise<{i: string, n: string}[]> {
+    return new Promise((resolve) => {
+      if (!this.isoLangCache) {
+        this.http.get('assets/iso693.json').map((rsp) => rsp.json())
+        .subscribe((foo) => {
+          this.isoLangCache = foo
+          resolve(this.isoLangCache)
+        })
+      } else {
+        resolve(this.isoLangCache)
+      }
+    })
   }
 
 }

@@ -10,5 +10,13 @@
   },
   "ANDROID": {
     "TITLE": "Zahwa App"
+  },
+  "VIEWER": {
+    "LOADING": "Loading, please wait..."
+  },
+  "TRANSLIST": {
+    "BY": "Translation by:",
+    "ORIGINALBY": "Original Recipe by:",
+    "ADD": "Add new translation"
   }
 }

@@ -1,0 +1,22 @@
+<div class="langeditwrapper">
+  <div *ngIf="!nohead" class="subhead2">{{ 'LANGUAGE.LANGUAGES' | translate }}</div>
+  <div class="chipwrap">
+    <ion-chip *ngFor="let lang of languages; let i = index" 
+        [ngClass]="{'hasdelete': !readonly}"
+        [color]="color"
+        (click)="editLanguages()">
+      <ion-label>
+        {{lang.name}}
+        <span *ngIf="lang.iso">({{lang.iso}})</span>
+      </ion-label>
+    </ion-chip>
+  </div>
+  <div>
+    <button *ngIf="!languages || languages.length === 0" ion-fab class="micro"
+      color="primary"
+      (click)="editLanguages()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </div>
+
+</div>

@@ -15,6 +15,10 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+// Import font-awesome for icons etc
+$fa-font-path: '../assets/fonts';
+@import 'font-awesome';
+
 .menuitems {
   margin-top: 56px;
   padding: 5px;
@@ -24,4 +28,22 @@ ion-content.menucontent {
   div.scroll-content {
     overflow-y: hidden;
   }
+}
+
+ion-fab.huge {
+  width: 100px;
+  height: 100px;
+  margin: 0px;
+  button.fab {
+    ion-icon {
+      line-height: 100px;
+      font-size: 10rem;
+    }
+    line-height: 100px;
+    width: 100px;
+    height: 100px;
+  }
+}
+ion-fab[center].huge {
+  margin-left: -50px;
 }

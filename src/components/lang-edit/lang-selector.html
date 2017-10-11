@@ -1,0 +1,87 @@
+
+<div class="langselwrapper">
+
+<div *ngIf="selectedLanguages.length && selectmode === 'select'" class="subhead2">{{ 'LANGUAGE.SELECTED' | translate }}</div>
+<div class="tagwrap">
+  <ion-chip *ngFor="let lang of selectedLanguages; let i = index"
+      (click)="unselectSelectedLanguage(i)"
+      [color]="selectedColor">
+      <ion-label>
+        {{lang.name}} 
+        <span *ngIf="lang.iso">({{lang.iso}})</span>
+      </ion-label>
+  </ion-chip>
+</div>
+
+<div *ngIf="showNearby()" class="subhead2">
+  {{ 'LANGUAGE.SELNEAR' | translate }}</div>
+<div *ngIf="nearbyLanguages.length" class="tagwrap">
+  <ion-chip *ngFor="let lang of nearbyLanguages"
+      (click)="selectNearbyLanguage(lang)"
+      [hidden]="isSelected(lang.name)">
+      <ion-label>
+        <span [innerHTML]="makeLangChipName(lang) | highlight : lquery"></span>
+      </ion-label>
+  </ion-chip>
+</div>
+
+<div *ngIf="autocompleteExistingIds.length || autocompleteISOIndices.length" class="subhead2">
+  {{ 'LANGUAGE.SELALL' | translate }}</div>
+<div class="tagwrap">
+  <ion-chip *ngFor="let alid of autocompleteExistingIds"
+      (click)="selectAutocompleteLanguage(alid)"
+      [hidden]="isSelected(nearbyLangData.get(alid).language.name)">
+      <ion-label>
+        <div [innerHTML]="nearbyLangData.get(alid).language.name | highlight : lquery"></div>
+        <div *ngIf="nearbyLangData.get(alid).language.iso"
+          [innerHTML]="(' (' + nearbyLangData.get(alid).language.iso + ')') | highlight : lquery"></div>
+      </ion-label>
+  </ion-chip>
+</div>
+
+<!-- Autocomplete ISO results - only for select mode, not search --> 
+<div *ngIf="selectmode === 'select'" class="tagwrap">
+  <ion-chip *ngFor="let aidx of autocompleteISOIndices" 
+      (click)="selectAutocompleteISOLanguage(aidx)"
+      [hidden]="isSelected(isocodes[aidx].n)">
+      <ion-label>
+        <div [innerHTML]="(isocodes[aidx].n + ' (' + isocodes[aidx].i + ')') | highlight : lquery"></div>
+      </ion-label>
+  </ion-chip>
+</div>
+<div *ngIf="selectmode === 'select'" class="tagwrap">
+  <ion-chip *ngFor="let aidx of largeISOIndices" class="fat"
+        (click)="selectAutocompleteISOLanguage(aidx)"
+        [hidden]="isSelected(isocodes[aidx].n)">
+      <ion-label>
+        <div [innerHTML]="(isocodes[aidx].n + ' (' + isocodes[aidx].i + ')') | highlight : lquery"></div>
+      </ion-label>
+  </ion-chip>
+</div>
+
+<!-- Custom Language -->
+<div *ngIf="showCustomLanguage()" class="subhead2">{{ 'LANGUAGE.SELCUST' | translate }}</div>
+<ion-chip *ngIf="showCustomLanguage()"
+    (click)="selectCustomLanguage()"
+    color="favorite"
+    [style.opacity]="canAddCustom() ? '1' : '0.5'">
+  <ion-label>
+    {{lquery}}
+  </ion-label>
+</ion-chip>
+
+<div class="inputrow">
+  <ion-item>
+    <ion-input type="text" class="paragraph" placeholder="{{ 'LANGUAGE.GENERAL' | translate }}"
+        [(ngModel)]="lquery" 
+        (keyup)="filterChoices()"></ion-input>
+  </ion-item>
+  <button *ngIf="selectmode === 'select'"
+      ion-fab color="secondary"
+      [disabled]="!canAccept()"
+      (click)="acceptLanguages()">
+    <ion-icon name="checkmark"></ion-icon>
+  </button>
+</div>
+
+</div>

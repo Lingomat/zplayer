@@ -1,0 +1,13 @@
+page-lang-popover {
+  ion-content.content-md {
+    padding: 5px;
+  }
+}
+
+.popover-md.language .popover-content {
+  width: 92%;
+  max-width: 400px;
+  top: auto !important;
+  bottom: 10px !important;
+  border-radius: 20px;
+} 

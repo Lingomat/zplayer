@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from '@angular/core'
+import { IonicPage, NavController, NavParams } from 'ionic-angular'
 
 /**
  * Generated class for the AndroidPage page.
@@ -19,7 +19,7 @@ export class AndroidPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AndroidPage');
+    console.log('ionViewDidLoad AndroidPage')
   }
 
 }
