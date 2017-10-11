@@ -9,7 +9,7 @@ import { DataProvider } from '../../providers/data/data'
 export class HomePage {
 
   constructor(public navCtrl: NavController, public data: DataProvider) {
-
+    console.log('home page')
   }
 
   async ngOnInit() {

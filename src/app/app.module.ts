@@ -8,6 +8,8 @@ import { MyApp } from './app.component'
 import { HomePage } from '../pages/home/home'
 import { ViewerPage } from '../pages/viewer/viewer'
 import { DataProvider } from '../providers/data/data'
+import { AboutPage } from '../pages/about/about'
+import { AndroidPage } from '../pages/android/android'
 
 import { GestateComponent } from '../components/gestate/gestate'
 import { RecipeSlidesComponent } from '../components/recipe-slides/recipe-slides'
@@ -30,6 +32,8 @@ export function createTranslateLoader(http: Http) {
     MyApp,
     HomePage,
     ViewerPage,
+    AboutPage,
+    AndroidPage,
     GestateComponent,
     RecipeSlidesComponent,
     RecipeViewerComponent,
@@ -56,7 +60,9 @@ export function createTranslateLoader(http: Http) {
   entryComponents: [
     MyApp,
     HomePage,
-    ViewerPage
+    ViewerPage,
+    AboutPage,
+    AndroidPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

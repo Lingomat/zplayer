@@ -1,1 +1,29 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<!-- <ion-header>
+    <ion-navbar>
+        <button ion-button clear (click)="paneToggle()" icon-only>
+          <ion-icon name='menu'></ion-icon>
+        </button>
+      </ion-navbar>
+</ion-header> -->
+
+<ion-split-pane>
+  <!--  our side menu  -->
+  <ion-menu [content]="content" >
+    <ion-header>
+      <!-- <ion-toolbar>
+        <ion-title>{{ "MAIN.TITLE" | translate }}</ion-title>
+      </ion-toolbar> -->
+    </ion-header>
+    <ion-content class="menucontent">
+      <ion-list class="menuitems">
+        <button *ngFor="let mi of menuItems" ion-button block outline
+            (click)="openPage(mi.page)">
+            {{ mi.title | translate }}
+        </button>
+      </ion-list>
+    </ion-content> 
+  </ion-menu>
+  <!-- the main content -->
+  <ion-nav [root]="rootPage" main #content></ion-nav>
+</ion-split-pane>
+

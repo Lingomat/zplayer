@@ -1,5 +1,14 @@
 {
   "MAIN": {
     "TITLE": "The Zahwa Project"
+  },
+  "HOME": {
+    "TITLE": "Home"
+  },
+  "ABOUT": {
+    "TITLE": "About"
+  },
+  "ANDROID": {
+    "TITLE": "Zahwa App"
   }
 }
