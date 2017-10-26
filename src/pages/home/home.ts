@@ -9,23 +9,15 @@ import { DataProvider } from '../../providers/data/data'
 export class HomePage {
 
   constructor(public navCtrl: NavController, public data: DataProvider) {
-    console.log('home page')
+
   }
 
   async ngOnInit() {
-    console.log('running test')
-    // try {
-    //   let bundle = await this.data.getRecipeBundleFromFirebase('JJmrs')
-    // } catch(e) {
-    //   console.log('error', e)
-    // }
-    // try {
-    //   let complete = await this.data.getCompleteRecipe('JJmrs')
-    //   console.log('got complete', complete)
-    // } catch(e) {
-    //   console.log('error', e)
-    // }
     
+  }
+
+  mapSelect(selected: {recipeIds: string[], evt: MouseEvent}) {
+    console.log('home got', selected)
   }
 
 }

@@ -1,0 +1,120 @@
+{
+  "rules": {
+    "recipe": {
+      ".read": true,
+      "$uid": {
+        ".write": "$uid === auth.uid",
+        "$recipeId": {
+          ".validate": "newData.hasChildren(['created'])"
+        }
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": true,
+        ".write": "$uid === auth.uid",
+        ".validate": "newData.hasChildren(['email', 'displayName', 'joined', 'uiLang', 'photoURL'])",
+        "email": {
+          ".validate": "newData.isString()"
+        },
+        "displayName": {
+          ".validate": "newData.isString()"
+        },
+        "joined": {
+          ".validate": "newData.isNumber()"
+        },
+        "photoURL": {
+          ".validate": "newData.isString()"
+        },
+        "uiLang": {
+          ".validate": "newData.isString()"
+        }
+      }
+    },
+    "translate" : {
+      ".read": true,
+      ".write": "auth.uid !== null"
+    },
+    "social": {
+      ".read": true,
+      ".write": "auth.uid !== null",
+        "recipe": {
+          "$uid": {
+            "$recipeId": {
+              "likeCount": {
+                ".validate": "newData.isNumber()"
+              },
+               "likedBy": {
+                "$likedById": {
+                  "likedOn": {
+                    ".validate": "newData.isNumber()"
+                  }
+                }
+              }
+            }
+          },
+        "user": {
+          "$uid": {
+            "liked": {
+              "$likedId": {
+                "recipeId": {
+                  ".validate": "newData.isString()"
+                },
+                "likedOn": {
+                  ".validate": "newData.isNumber()"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": {
+      ".read": true,
+      ".write": "auth.uid !== null",
+      "$tag": {
+        ".indexOn": "recipeId"
+      }
+    },
+    "geo": {
+      ".read": true,
+      ".write": "auth.uid !== null",
+      "recipe": {
+        ".indexOn": "g"
+      }
+    },
+    "recipeHandle": {
+      ".read": true,
+      ".write": "auth.uid !== null"
+    },
+    "languages": {
+      ".read": true,
+      ".write": "auth.uid !== null",
+      "$lid": {
+        ".validate": "newData.hasChildren(['name'])",
+        "name": {
+          ".validate": "newData.isString()"
+        },
+        "iso": {
+          ".validate": "newData.isString()"
+        },
+        "usedIn": {}
+      }
+    },
+    "file": {
+      ".read": true,
+      "$uid": {
+        ".write": "$uid === auth.uid",
+        "$fileid": {
+          ".validate": "newData.hasChildren(['desc', 'downloadURL'])",
+          "desc": {
+            ".validate": "newData.isString()"
+          },
+          "downloadURL": {
+            ".validate": "newData.isString()"
+          }
+        }
+      }
+    }
+  }
+}

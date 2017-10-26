@@ -13,7 +13,10 @@ export interface EnvironmentConfig {
 export class GlobalsProvider {
   config: EnvironmentConfig
   constructor() {
-    this.config = EnvConfig
+    this.config = EnvConfig.find((x) => {
+      return x.hosts.indexOf(window.location.hostname) !== -1
+    })
+    console.log('using envConfig', this.config)
   }
   getEnv(): EnvironmentConfig {
     return this.config

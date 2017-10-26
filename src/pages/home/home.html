@@ -9,9 +9,6 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  All the things are here.
-  <p>
-    ... or at least they should be.
-  </p>
+<ion-content>
+  <google-map (selected)="mapSelect($event)"></google-map>
 </ion-content>

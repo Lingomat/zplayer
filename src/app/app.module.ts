@@ -14,6 +14,7 @@ import { AndroidPage } from '../pages/android/android'
 import { GestateComponent } from '../components/gestate/gestate'
 import { RecipeSlidesComponent } from '../components/recipe-slides/recipe-slides'
 import { RecipeViewerComponent } from '../components/recipe-viewer/recipe-viewer'
+import { GoogleMapComponent } from '../components/google-map/google-map'
 
 import { TranslationSelectorComponent } from '../components/translation-selector/translation-selector'
 import { TransPopover } from '../components/translation-selector/trans-popover'
@@ -32,6 +33,7 @@ import { GlobalsProvider } from '../providers/globals/globals'
 import { HighlightPipeModule } from '../pipes/highlight/highlight.module'
 
 import { LottieAnimationViewModule } from 'ng-lottie'
+import { FirebaseProvider } from '../providers/firebase/firebase'
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -51,7 +53,8 @@ export function createTranslateLoader(http: Http) {
     TransPopover,
     LangEditComponent,
     LangPopover,
-    LangSelectorComponent
+    LangSelectorComponent,
+    GoogleMapComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,7 @@ export function createTranslateLoader(http: Http) {
     IonicModule.forRoot(MyApp, {}, {
       links: [
         { component: ViewerPage, name: 'view', segment: 'r/:handleId'}
-      ]
+      ],
     }),
     BrowserAnimationsModule,
     HttpModule,
@@ -88,7 +91,8 @@ export function createTranslateLoader(http: Http) {
     UtilProvider,
     WebAudioPlayerProvider,
     AudioProvider,
-    GlobalsProvider
+    GlobalsProvider,
+    FirebaseProvider
   ]
 })
 export class AppModule {}
