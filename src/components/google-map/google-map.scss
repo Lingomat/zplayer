@@ -23,4 +23,63 @@ google-map {
     opacity: 1;
     z-index: 5;
   }
+  .infowindow {
+    font-family: roboto;
+    //max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    .recipename {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+    .langs {
+      margin-top: 5px;
+      font-size: 1.3rem;
+      .main {
+        font-weight: 500;
+      }
+      .trans {
+        font-weight: 300;
+      }
+    }
+
+    .detailsrow {
+      margin-top: 5px;
+      display: flex;
+      flex-direction: row;
+      img {
+        width: 100px;
+        height: 100px;
+        flex-shrink: 0;
+      }
+      .descpanel {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 10px;
+        justify-content: space-between;
+        .description {
+          font-size: 1.5rem;
+        }
+        .user {
+          margin-top: 5px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          font-size: 1.6rem;
+          font-weight: 500;
+          img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+          }
+          .uname {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+
+    
+  }
 }

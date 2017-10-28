@@ -18,5 +18,19 @@
     "BY": "Translation by:",
     "ORIGINALBY": "Original Recipe by:",
     "ADD": "Add new translation"
+  },
+  "RECIPEDETAILS": {
+    "TITLE": "Recipe Details"
+  },
+  "RECIPE": {
+    "TAGS": "Tags",
+    "AUTHOR": "By:",
+    "SHARE": "Share Recipe"
+  },
+  "LANGUAGE": {
+    "LANGUAGES": "Languages"
+  },
+  "RECIPEEDIT": {
+    "DESC": "Description"
   }
 }

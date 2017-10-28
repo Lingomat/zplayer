@@ -47,3 +47,87 @@ ion-fab.huge {
 ion-fab[center].huge {
   margin-left: -50px;
 }
+
+
+.highlight {
+  color: color($colors, primary);
+}
+
+.headline1 {
+  font-size: 20px;
+  font-weight: 500;
+  color: color($colors, dark)
+}
+.headline2 {
+  font-size: 18px;
+  font-weight: 400;
+  color: color($colors, dark);
+}
+.headline2b {
+  font-size: 16px;
+  font-weight: 500;
+  color: color($colors, dark);
+}
+
+.subhead1 {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: color($colors, dark);
+  font-weight: 500;
+}
+.subhead2 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: color($colors, primary);
+  font-weight:500;
+}
+.subhead3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: color($colors, primary);
+  font-weight:400;
+}
+.subhead4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: color($colors, primary);
+  font-weight: 400;
+}
+.subhead5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: color($colors, primary);
+  font-weight: 400;
+}
+.subheadnc {
+  font-size: 13px;
+  color: color($colors, primary);
+  font-weight: 400;
+}
+.subheadncb {
+  font-size: 13px;
+  color: color($colors, primary);
+  font-weight: 500;
+}
+.subheadp {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: color($colors, primary);
+  font-weight: 300;
+}
+
+.paragraph {
+  font-size: 13px;
+  font-weight: 400;
+  color: color($colors, dark);
+}
+.paragraphb {
+  font-size: 13px;
+  font-weight: 700;
+  color: color($colors, dark);
+}
+.debugtext {
+  font-size: 9px;
+  font-weight:  300;
+  color: black;
+}

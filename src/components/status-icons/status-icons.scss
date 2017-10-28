@@ -1,0 +1,28 @@
+status-icons {
+    .iconrow {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        ion-icon {
+          margin-right: 5px;
+          font-size: 2.0rem;
+        }
+        // .ion-md-falanguage {
+        //   font: normal normal normal 14px/1 FontAwesome;
+        // }
+        .ion-md-falanguage:before {
+          font: normal normal normal 17px/1 FontAwesome;
+          content: '\f1ab'
+        }
+    }
+    .icongroup {
+        display: flex;
+        align-items: center;
+    }
+    .icongroup.single {
+      ion-icon {
+        margin-right: 2px;
+      }
+    }
+}

@@ -1,0 +1,13 @@
+<div class="iconrow">
+  <div *ngFor="let icon of badges" class="icongroup">
+    <ion-icon [name]="getIonIcon(icon)"
+        [color]="highlightedIcon.get(icon) ? 'danger' : 'favorite'"
+        [style.opacity]="disableIconInteraction.get(icon) ? '0.7' : 1">
+    </ion-icon>
+    <ion-badge
+        [style.opacity]="disableIconInteraction.get(icon) ? '0.7' : 1">
+        {{ getBadgeValue(icon) }}
+    </ion-badge>
+  </div>
+</div>
+

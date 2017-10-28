@@ -10,6 +10,7 @@ import { ViewerPage } from '../pages/viewer/viewer'
 import { DataProvider } from '../providers/data/data'
 import { AboutPage } from '../pages/about/about'
 import { AndroidPage } from '../pages/android/android'
+import { DetailsPage } from '../pages/details/details'
 
 import { GestateComponent } from '../components/gestate/gestate'
 import { RecipeSlidesComponent } from '../components/recipe-slides/recipe-slides'
@@ -22,6 +23,11 @@ import { TransPopover } from '../components/translation-selector/trans-popover'
 import { LangEditComponent } from '../components/lang-edit/lang-edit'
 import { LangPopover } from '../components/lang-edit/lang-popover'
 import { LangSelectorComponent } from '../components/lang-edit/lang-selector'
+
+import { TagEditComponent } from '../components/tag-edit/tag-edit'
+
+import { StatusIconsComponent } from '../components/status-icons/status-icons'
+
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
@@ -54,7 +60,10 @@ export function createTranslateLoader(http: Http) {
     LangEditComponent,
     LangPopover,
     LangSelectorComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    DetailsPage,
+    TagEditComponent,
+    StatusIconsComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +92,8 @@ export function createTranslateLoader(http: Http) {
     AboutPage,
     AndroidPage,
     TransPopover,
-    LangPopover
+    LangPopover,
+    DetailsPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

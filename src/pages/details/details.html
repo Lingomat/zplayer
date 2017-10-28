@@ -1,0 +1,32 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'RECIPEDETAILS.TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header> -->
+<ion-content>
+  <ion-item>
+    <ion-avatar item-left>
+      <img [src]="userInfo.photoURL">
+    </ion-avatar>
+    <div class="headline2">{{ recipe.name }}</div>
+    <div class="subhead2">{{ 'RECIPE.AUTHOR' | translate }} {{ userInfo.userName }}</div>
+  </ion-item>
+  <div class="recipeimage"
+      [style.background-image]="backgroundImage"
+      (click)="pressedDownPlay()">
+      <button ion-button clear icon-only color="favorite" [disabled]="downloading">
+        <ion-icon name="play"></ion-icon>
+      </button>
+  </div>
+  <status-icons 
+    [recipeData]="recipe" 
+    [badges]="['likes', 'mediaSet', 'duration', 'translations']"
+    [transCount]="recipeHit.translations.length"></status-icons>
+  <div class="daterow">
+    <div class="subhead2">{{ 'RECIPEEDIT.DESC' | translate }}</div>
+    <div class="subheadp">{{ displayCreated(recipe?.created) }}</div>
+  </div>
+  <div class="paragraph padding">{{ recipe.description }} </div>
+  <tag-edit [readonly]="true" [tags]="recipe.tags"></tag-edit>
+  <lang-edit [readonly]="true" [languages]="recipe.languages"></lang-edit>
+</ion-content>

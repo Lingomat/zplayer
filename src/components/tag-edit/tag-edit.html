@@ -1,0 +1,17 @@
+<div *ngIf="selectedTags.length !== 0 || !readonly" class="tageditwrapper">
+  <div *ngIf="!nohead" class="subhead2">{{ 'RECIPE.TAGS' | translate }}</div>
+  <div class="taglist">
+    <ion-chip *ngFor="let tag of selectedTags; let i = index" 
+      [color]="color"
+      (click)="editTags()">
+      <ion-label>#{{tag}}</ion-label>
+    </ion-chip>
+  </div>
+  <div>
+    <button *ngIf="selectedTags.length === 0 && !readonly" ion-fab mini
+      color="primary"
+      (click)="editTags()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </div>
+</div>

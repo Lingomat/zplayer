@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core'
-import { FirebaseProvider } from '../../providers/firebase/firebase'
+import { FirebaseProvider, SmallRecipeHit, Language } from '../../providers/firebase/firebase'
 import { } from 'googlemaps'
 
 declare var google
@@ -11,7 +11,7 @@ declare var MarkerClusterer // has been hacked in by page script source... sigh.
 })
 export class GoogleMapComponent {
   @ViewChild('map') mapElement: ElementRef
-  @Output() selected = new EventEmitter<{recipeId: string}>()
+  @Output() selected = new EventEmitter<{selected: SmallRecipeHit, evt: MouseEvent}>()
   geoFire: any
   geoQuery: any
   position: {latitude: number, longitude: number}
@@ -23,6 +23,10 @@ export class GoogleMapComponent {
   mlist: google.maps.Marker[] = []
   initialZoomLevel: number = 15
   mc: any
+  infoContent: string = '<h2>A thing!</h2><p>With details and stuff</p>'
+  infoWindow: google.maps.InfoWindow
+  recipeCache: Map<string, SmallRecipeHit> = new Map()
+  mouseEvent: MouseEvent
   /*
     C O N S T R U C T O R
   */
@@ -32,7 +36,8 @@ export class GoogleMapComponent {
     this.geoFire = this.fb.getGeoType('recipe')
   }
 
-  async ngOnInit() {
+  ngOnInit() {
+    console.log('on init')
     this.loadGoogleMaps()
   }
   
@@ -41,10 +46,23 @@ export class GoogleMapComponent {
       if (!this.markers.has(recipeId)) {
         let marker: google.maps.Marker = new google.maps.Marker({
           position: new google.maps.LatLng(latitude, longitude),
+          icon: './assets/img/map-marker3.png'
           //map: this.map
         })
-        marker.addListener('click', () => {
-          this.selected.emit({recipeId: recipeId})
+        marker.addListener('click', (evt: google.maps.MouseEvent) => {
+          console.log('marker listen')
+          if (this.recipeCache.has(recipeId)) {
+            let hit = this.recipeCache.get(recipeId)
+            this.selected.emit({selected: hit, evt: this.mouseEvent}) // use stashed mouse event
+          } else {
+            this.fb.fetchRecipeHit(recipeId)
+            .then(rs => {
+              if (rs) {
+                this.recipeCache.set(recipeId, rs)
+                this.selected.emit({selected: rs, evt: this.mouseEvent})
+              }
+            })
+          }
         })
         this.markers.set(recipeId, marker)
         this.mc.addMarker(marker)
@@ -111,10 +129,13 @@ export class GoogleMapComponent {
       let [thisLanguage, thisRegion] = window.navigator.language.split('-')
       script.src += '&language=' + thisLanguage + '&region=' + thisRegion
       document.body.appendChild(script)
+    } else {
+      this.initMap()
     }
   }
 
   async initMap() {
+    console.log('initMap')
     const calcDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
       var p = 0.017453292519943295    // Math.PI / 180
       var c = Math.cos
@@ -137,18 +158,24 @@ export class GoogleMapComponent {
       })
     }
     this.mapInitialised = true
+    this.infoWindow = new google.maps.InfoWindow({
+      content: this.infoContent
+    })
+    console.log('getting pos')
     try {
       this.position = await this.getNavigatorPos()
     } catch(e) {
       console.log('map: error in getNavigatorPos()', e)
     }
+    console.log('got pos')
     if (this.position) {
       console.log('current pos', this.position)
-      this.initGeoFire([this.position.latitude,this.position.longitude])
       let latLng: google.maps.LatLng = new google.maps.LatLng(this.position.latitude, this.position.longitude)
       let mapOptions: google.maps.MapOptions = {
         center: latLng,
         zoom: this.initialZoomLevel,
+        disableDefaultUI: true,
+        zoomControl: true,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions)
@@ -156,7 +183,18 @@ export class GoogleMapComponent {
         console.log('idle fired')
         updateGeoFire()
       })
+      // stash DOM clicks on map because Google Maps API amazingly provides
+      // no way to get a real MouseEvent
+      this.mapElement.nativeElement.addEventListener('click', (evt) => {
+        console.log('dom listen')
+        this.mouseEvent = evt
+      }, true)
+      this.map.addListener('click', (evt) => {
+        this.infoWindow.close()
+      })
       this.mc = new MarkerClusterer(this.map)
+      console.log('init geofire')
+      this.initGeoFire([this.position.latitude,this.position.longitude])
     }
   }
 }
