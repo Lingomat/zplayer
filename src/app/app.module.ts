@@ -16,6 +16,7 @@ import { GestateComponent } from '../components/gestate/gestate'
 import { RecipeSlidesComponent } from '../components/recipe-slides/recipe-slides'
 import { RecipeViewerComponent } from '../components/recipe-viewer/recipe-viewer'
 import { GoogleMapComponent } from '../components/google-map/google-map'
+import { LocaleFabComponent } from '../components/locale-fab/locale-fab'
 
 import { TranslationSelectorComponent } from '../components/translation-selector/translation-selector'
 import { TransPopover } from '../components/translation-selector/trans-popover'
@@ -36,7 +37,7 @@ import { WebAudioPlayerProvider } from '../providers/web-audio-player/web-audio-
 import { AudioProvider } from '../providers/audio/audio'
 import { GlobalsProvider } from '../providers/globals/globals'
 
-import { HighlightPipeModule } from '../pipes/highlight/highlight.module'
+import { HighlightPipe} from '../pipes/highlight/highlight'
 
 import { LottieAnimationViewModule } from 'ng-lottie'
 import { FirebaseProvider } from '../providers/firebase/firebase'
@@ -63,13 +64,14 @@ export function createTranslateLoader(http: Http) {
     GoogleMapComponent,
     DetailsPage,
     TagEditComponent,
-    StatusIconsComponent
+    StatusIconsComponent,
+    HighlightPipe,
+    LocaleFabComponent
   ],
   imports: [
     BrowserModule,
-    HighlightPipeModule,
     LottieAnimationViewModule.forRoot(),
-    IonicModule.forRoot(MyApp, {}, {
+    IonicModule.forRoot(MyApp, {iconMode: 'md'}, {
       links: [
         { component: ViewerPage, name: 'view', segment: 'r/:handleId'}
       ],

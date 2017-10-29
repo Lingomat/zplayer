@@ -93,7 +93,10 @@ $colors: (
 // --------------------------------------------------
 
 @import "roboto";
-@import "noto-sans";
+//@import "noto-sans";
+@import "./assets/notosanstc";
+
+$font-family-md-base: "Roboto", "Noto Sans TC", sans-serif;
 
 
 $split-pane-side-min-width: 200px;

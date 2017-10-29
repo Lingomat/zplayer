@@ -20,14 +20,25 @@ $fa-font-path: '../assets/fonts';
 @import 'font-awesome';
 
 .menuitems {
-  margin-top: 56px;
+  margin-top: 52px;
   padding: 5px;
+}
+
+local-fab .fabwrapper {
+  position: absolute;
+  top: 9px;
+  left: 5px;
 }
 
 ion-content.menucontent {
   div.scroll-content {
     overflow-y: hidden;
   }
+}
+
+ion-fab.localfab {
+  top: 0px;
+  left: 5px;
 }
 
 ion-fab.huge {
@@ -51,6 +62,7 @@ ion-fab[center].huge {
 
 .highlight {
   color: color($colors, primary);
+  font-weight: 500;
 }
 
 .headline1 {

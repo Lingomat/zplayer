@@ -25,12 +25,12 @@ export class MyApp {
   ]
 
   constructor(public translate: TranslateService) {
+    this.translate.addLangs(['en', 'zh-TW'])
     this.translate.use('en')
   }
 
   openPage(page: any) {
     this.rootPage = page
   }
-
 }
 

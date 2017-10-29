@@ -1,3 +1,40 @@
 page-about {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .centerstrip {
+      display: flex;
+      max-width: 1000px;
+      flex-shrink: 1;
+      flex-direction: column;
+      div.cbox {
+        min-width: 700px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+          width: 150px;
+          height: 150px;
+          border-radius: 5px;
+        }
+        .para {
+          padding: 0px 15px;
+          font-size: 15px;
+          font-weight: 400;
+          //text-align: center;
+        }
+      }
+      div:nth-child(even) {
+        img {
+          order: 1;
+        }
+        .para {
+          order: 0;
+          text-align: right;
+        }
+      }
+    }
+  }
 
 }

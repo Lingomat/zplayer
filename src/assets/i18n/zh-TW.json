@@ -1,12 +1,12 @@
 {
   "MAIN": {
-    "TITLE": "The Zahwa Project"
+    "TITLE": "雜碗項目"
   },
   "HOME": {
-    "TITLE": "Home"
+    "TITLE": "首頁"
   },
   "ANDROID": {
-    "TITLE": "Zahwa App"
+    "TITLE": "雜碗App"
   },
   "VIEWER": {
     "LOADING": "Loading, please wait..."
@@ -32,7 +32,7 @@
   },
   "TEST" : "This is a long paragraph with Zahwa in it and 雜碗 as well.",
   "ABOUT": {
-    "TITLE": "About",
+    "TITLE": "關於",
     "1": "Zahwa is an Android mobile app to document proceedural discourse in small languages. That's a fancy way of saying that Zahwa documents spoken instructions on how to do something, such as how to cook a recipe. By small languages, we mean languages spoken by minorities, indigeonous communities and otherwise endangered languages. Zahwa was originally conceived to document cooking recipes but it can be used to document any how-to knowledge.",
     "2": "Zahwa's basic function is to import a series of photos. The user then narrates the images as a form of slide-show, advancing or swiping through the slides as they speak. The app also records touch gestures as the user speaks. This is helpful to draw attention to certain items in a picture as they are referred to in speech, but gestures can also indicate things like speed and direction",
     "3": "One of our goals is to share cultural knowledge across languages. The app provides the means to perform oral translations of recipes in a manner similar to the Aikuma Android app. Zahwa is part of, or a continuation of, the Aikuma Project which seeks to employ cutting edge technologies to accelerate the documentation of endangered languages.",

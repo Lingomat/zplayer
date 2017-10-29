@@ -51,6 +51,7 @@ export class GoogleMapComponent {
         })
         marker.addListener('click', (evt: google.maps.MouseEvent) => {
           console.log('marker listen')
+          console.log('map zoom', this.map.getZoom())
           if (this.recipeCache.has(recipeId)) {
             let hit = this.recipeCache.get(recipeId)
             this.selected.emit({selected: hit, evt: this.mouseEvent}) // use stashed mouse event

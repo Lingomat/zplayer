@@ -1,11 +1,4 @@
-<!-- <ion-header>
-    <ion-navbar>
-        <button ion-button clear (click)="paneToggle()" icon-only>
-          <ion-icon name='menu'></ion-icon>
-        </button>
-      </ion-navbar>
-</ion-header> -->
-
+<locale-fab></locale-fab>
 <ion-split-pane>
   <!--  our side menu  -->
   <ion-menu [content]="content" >
@@ -21,6 +14,7 @@
             {{ mi.title | translate }}
         </button>
       </ion-list>
+      
     </ion-content> 
   </ion-menu>
   <!-- the main content -->

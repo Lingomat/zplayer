@@ -14,9 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular'
   templateUrl: 'about.html',
 })
 export class AboutPage {
-
+  hlt: string[] = ['Zahwa', '雜碗']
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
-
 }

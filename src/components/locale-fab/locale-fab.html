@@ -1,0 +1,16 @@
+<!--Popup fab mode-->
+<div *ngIf="currentLanguage" class="fabwrapper">
+  <ion-fab #fab>
+    <button ion-fab mini>
+      {{ langmap[currentLanguage].fab }}
+    </button>
+    <ion-fab-list side="right">
+      <button *ngFor="let language of languageList"
+          ion-fab mini 
+          (click)="selectLanguage(language)">
+        {{langmap[language].fab}}
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</div>
+
