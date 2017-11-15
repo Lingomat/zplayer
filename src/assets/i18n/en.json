@@ -6,7 +6,10 @@
     "TITLE": "Home"
   },
   "ANDROID": {
-    "TITLE": "Zahwa App"
+    "TITLE": "Zahwa App",
+    "AVAILABLE": "Zahwa is available on Google Play for Android devices 5.0 and up. Click the button to go to the Play Store page to install.",
+    "BETA1": "By default Zahwa has beta updates disabled. If you're willing to accept the risk, you can enable beta app updates in the settings.",
+    "BETA2": "Beta updates download in the background silently and apply when you restart the app."
   },
   "VIEWER": {
     "LOADING": "Loading, please wait..."
@@ -38,8 +41,29 @@
     "3": "One of our goals is to share cultural knowledge across languages. The app provides the means to perform oral translations of recipes in a manner similar to the Aikuma Android app. Zahwa is part of, or a continuation of, the Aikuma Project which seeks to employ cutting edge technologies to accelerate the documentation of endangered languages.",
     "4": "Zahwa is the first of a new kind of language documentation tool which we call language documentation 2.0, loosely after the Web 2.0. Traditionally, digital tools for language documentation are used by experts. With Zahwa, we hope to engage ordinary speakers of small languages. Our aim is for Zahwa to be genuinely useful to speakers by itself, but to also contribute towards a central data store. Eventually, different kinds of apps will connect to the data store.",
     "5": "The Zahwa app was conceived by Amina Mettouchi and Steven Bird at the Digital Tools and Methods Summit at the University of Melbourne in June 2016. Zahwa was developed by Mat Bettinson, a PhD candidate at the University of Melbourne.",
-    "6": "",
-    "7": "",
+    "6": "Zahwa is supported by the Arc Centre of Excellence for the Dynamics of Language (CoEDL), the National Science Foundation (NSF) and the Australia Government via the Australian Postgraduate Award scheme (APA).",
+    "7": "Special thanks to the Saisiyat community in rural North Western Taiwan. This project would not have been possible without their enthusiasm for maintaining their own language, and their great hospitality and patience.",
     "8": ""
+  },
+  "BLOG": {
+    "TITLE": "Blog"
+  },
+  "FAQ": {
+    "TITLE": "FAQ",
+    "Q0": "Will there be an iPhone version?",
+    "A0": "Maybe. Zahwa is a hybrid app so making an iPhone version fairly straight forward. However it requires some effort, and Apple hardware, which I don't have.",
+    "Q1": "Does Zahwa work offline?",
+    "A1": "Yes! Zahwa was built with the assumption that internet access is temporary. There are settings to select automatic, manual or Wi-Fi sync.",
+    "Q2": "Can I help translate the app into my language?",
+    "A2": "Absolutely. Get in touch.",
+    "Q3": "Is Zahwa open source?",
+    "A3": "The entire app probably wont be OS, but a goal of this research is to produce reusable OS components to accelerate language app development. There will be more happening in 2018.",
+    "Q4": "Can I access the data?",
+    "A4": "Zahwa has a backup/export feature that packs up a recipe into a zip file. This contains all of the images, audio files and metadata in json files. If you mean accessing the synced data online, a public API is in the works but it's not currently a priority. I'm also planning to export Zahwa data to a more traditional archive and that might be easier to interact with depending on what you want to do.",
+    "Q5": "What technology was used to build Zahwa?",
+    "A5": "Zahwa is an Ionic app. That means it's an Angular web app, written in Typescript, bundled with Cordova and a number of native plugins. The online database is built on Firebase and Google cloud storage."
+  },
+  "RESEARCH": {
+    "TITLE": "Research"
   }
 }

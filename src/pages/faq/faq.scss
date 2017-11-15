@@ -1,0 +1,24 @@
+page-faq {
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        .centerstrip {
+          display: flex;
+          max-width: 1000px;
+          flex-shrink: 1;
+          flex-direction: column;
+          .question {
+            padding: 10px 15px;
+            font-size: 15px;
+            font-weight: 500;
+            color: color($colors, primary);
+          }
+          .answer {
+            padding: 10px 15px;
+            font-size: 15px;
+            font-weight: 400;
+          }
+        }
+    }
+}

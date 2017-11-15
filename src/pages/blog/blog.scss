@@ -1,0 +1,9 @@
+page-blog {
+    ion-content div.scroll-content {
+        overflow:  hidden;
+    }
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+}

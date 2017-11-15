@@ -11,29 +11,37 @@
   <div class="wrapper">
     <div class="centerstrip">
       <div class="cbox">
-        <img src="./assets/img/about-placeholder1.jpg">
-        <div class="para" [innerHTML]="'ABOUT.1' | translate | highlight : hlt">
+        <img src="./assets/img/about/1s.png">
+        <div class="text">
+          <div class="para" [innerHTML]="'ABOUT.1' | translate | highlight : hlt">
+          </div>
+          <div class="para" [innerHTML]="'ABOUT.2' | translate | highlight : hlt">
+          </div>
         </div>
       </div>
       <div class="cbox">
-        <img src="./assets/img/about-placeholder2.jpg">
-        <div class="para" [innerHTML]="'ABOUT.2' | translate | highlight : hlt">
+        <img src="./assets/img/about/2s.png">
+        <div class="text">
+          <div class="para" [innerHTML]="'ABOUT.3' | translate | highlight : hlt"></div>
+          <div class="para" [innerHTML]="'ABOUT.4' | translate | highlight : hlt"></div>
         </div>
       </div>
       <div class="cbox">
-        <img src="./assets/img/about-placeholder3.jpg">
-        <div class="para" [innerHTML]="'ABOUT.3' | translate | highlight : hlt">
+        <img src="./assets/img/about/3s.png">
+        <div class="text">
+          <div class="para" [innerHTML]="'ABOUT.5' | translate | highlight : hlt">
+          </div>
+          <div class="para" [innerHTML]="'ABOUT.6' | translate | highlight : hlt">
+          </div>
+          <div class="para" [innerHTML]="'ABOUT.7' | translate | highlight : hlt">
+          </div>
         </div>
       </div>
-      <div class="cbox">
-        <img src="./assets/img/about-placeholder1.jpg">
-        <div class="para" [innerHTML]="'ABOUT.4' | translate | highlight : hlt">
-        </div>
-      </div>
-      <div class="cbox">
-        <img src="./assets/img/about-placeholder2.jpg">
-        <div class="para" [innerHTML]="'ABOUT.5' | translate | highlight : hlt">
-        </div>
+      <div class="slideshow">
+        <img [src]="psource[0]"/>
+        <img [src]="psource[1]"/>
+        <img [src]="psource[2]"/>
+        <img [src]="psource[3]"/>
       </div>
     </div>
   </div>

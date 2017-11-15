@@ -11,6 +11,9 @@ import { DataProvider } from '../providers/data/data'
 import { AboutPage } from '../pages/about/about'
 import { AndroidPage } from '../pages/android/android'
 import { DetailsPage } from '../pages/details/details'
+import { BlogPage } from '../pages/blog/blog'
+import { FaqPage } from '../pages/faq/faq'
+import { ResearchPage } from '../pages/research/research'
 
 import { GestateComponent } from '../components/gestate/gestate'
 import { RecipeSlidesComponent } from '../components/recipe-slides/recipe-slides'
@@ -66,7 +69,10 @@ export function createTranslateLoader(http: Http) {
     TagEditComponent,
     StatusIconsComponent,
     HighlightPipe,
-    LocaleFabComponent
+    LocaleFabComponent,
+    BlogPage,
+    FaqPage,
+    ResearchPage
   ],
   imports: [
     BrowserModule,
@@ -95,7 +101,10 @@ export function createTranslateLoader(http: Http) {
     AndroidPage,
     TransPopover,
     LangPopover,
-    DetailsPage
+    DetailsPage,
+    BlogPage,
+    FaqPage,
+    ResearchPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

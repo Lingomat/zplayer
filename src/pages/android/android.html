@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-  <button ion-button menuToggle>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>{{ 'ANDROID.TITLE' | translate }}</ion-title>
@@ -10,5 +10,23 @@
 
 
 <ion-content padding>
-  This is the about App/Android page.
+  <div class="wrapper">
+    <div class="centerstrip">
+      <div class="cbox">
+        <a href="https://play.google.com/store/apps/details?id=org.aikuma.zahwa">
+          <img src="./assets/img/googleplay.png" width="250" height="77"/>
+        </a>
+        <div class="text">
+            <div class="para" [innerHTML]="'ANDROID.AVAILABLE' | translate | highlight : hlt"></div>
+        </div>
+      </div>
+      <div class="cbox">
+        <div class="text">
+          <div class="para" [innerHTML]="'ANDROID.BETA1' | translate | highlight : hlt"></div>
+          <div class="para" [innerHTML]="'ANDROID.BETA2' | translate | highlight : hlt"></div>
+        </div>
+        <img [src]="betapicturepath"/>
+      </div>
+    </div>
+  </div>
 </ion-content>

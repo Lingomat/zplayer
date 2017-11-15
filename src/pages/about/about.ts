@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, ChangeDetectorRef } from '@angular/core'
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
 
 /**
@@ -15,6 +15,39 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular'
 })
 export class AboutPage {
   hlt: string[] = ['Zahwa', '雜碗']
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  psource: string[] = ['','','','']
+  numslideshow: number = 12
+  mtick: number = 4
+  interval: any
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef) {
+    for (let i = 0; i < 4; ++i) {
+      this.psource[i] = this.makeImagePath(i)
+    }
   }
+  ngOnInit() {
+    this.interval = setInterval(() => {
+      this.tick()
+    }, 2000)
+  }
+  ngOnDestroy() {
+    if (this.interval) {
+      clearInterval(this.interval)
+    }
+  }
+  tick() {
+    let pos = this.mtick % 4
+    this.psource[pos] = this.makeImagePath(this.mtick)
+    this.ref.detectChanges()
+    ++this.mtick
+    if (this.mtick === this.numslideshow) {
+      this.mtick = 0
+    }
+  }
+  makeImagePath(num: number): string {
+    return './assets/img/slideshow/' + num.toString() + '.webp'
+  }
+  refreshImages() {
+
+  }
+
 }
