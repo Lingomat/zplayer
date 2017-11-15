@@ -143,3 +143,40 @@ ion-fab[center].huge {
   font-weight:  300;
   color: black;
 }
+
+.coedllogo {
+  position: absolute;
+  width: 280px;
+  right: 10px;
+  top: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  .coedlimg {
+      width: 40px;
+      height: 40px;
+  }
+  .titlecolumn {
+      flex-grow: 1;
+      max-width: 265px;
+      padding-right: 13px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  .justifyhack {
+    width: 100%;
+    display:  flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .justifyhack.top {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .justifyhack.bottom {
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
