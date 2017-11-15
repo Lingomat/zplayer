@@ -35,7 +35,7 @@ export class MyApp {
     },
     {
       title: "BLOG.TITLE",
-      page: BlogPage
+      page: 'http://www.formatosa.com'
     }
   ]
 
@@ -45,7 +45,11 @@ export class MyApp {
   }
 
   openPage(page: any) {
-    this.rootPage = page
+    if (typeof page === 'string') {
+      window.location.href = page
+    } else {
+      this.rootPage = page
+    }
   }
 }
 
