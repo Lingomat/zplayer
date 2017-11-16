@@ -65,5 +65,74 @@
   },
   "RESEARCH": {
     "TITLE": "Research"
+  },
+  "HELP": {
+    "TITLE": "How-To",
+    "INTRO": "These help guides will tell you everything you need to know about using Zahwa.",
+    "OVERVIEW": {
+      "TITLE": "Getting started",
+      "DESC": "Start here for the basics including making your first recipe.",
+      "0": "Welcome to Zahwa. There are three main tabs. The home tab displays your saved recipes.",
+      "1": "The maps tab displays a map centered on you. Nearby recipes will appear on this map.",
+      "2": "The third tab is the 'kitchen' where you can work on your own recipes. Press the large + button to create your first recipe.",
+      "3": "This will trigger a photo picker. Select the recipe photos you wish to use.",
+      "4": "In the next view you can drag the images to sort, or delete images by dragging to the bin icon.",
+      "5": "If you touch an image, the larger preview window lets you choose this recipe as a cover image which others will see when your recipe appears in search and on the map.",
+      "6": "After importing photos, you have completed the first step of creating a recipe. The next is to record the audio.",
+      "7": "Pressing record recipe will first ask you which language are using. Start typing to see auto-complete results. Touch on the language you want then press the tick icon.",
+      "8": "In the recipe recorder, you see one large image and a strip of thumbnails. Press the record button and then advance through the images as you describe your recipe.",
+      "9": "You can gesture over the large image to draw attention to anything in the picture.",
+      "10": "You have to record right to the last image. Then you press the tick to accept.",
+      "11": "The recorder then enters review mode. Press play to hear your recipe. If you want to re-do your recording, just press the left side X.",
+      "12": "Having made a recording you have completed step 2. Now all that remains is to name and 'tag' your recipe.",
+      "13": "Type your recipe name, description and type in the tags box to add tags. You don't have to add the description and tags now, you can add those later if you want.",
+      "14": "When you type tags, be sure to touch on the tags to select them.",
+      "15": "After you press the tick, Zahwa will tell you the recipe is complete and that it has been moved to the home screen.",
+      "16": "A completed recipe can still be edited and improved by touching the recipe on the home page. See the next guide on publishing and sharing."
+    },
+    "SHARE": {
+      "TITLE": "Publishing and Sharing",
+      "DESC": "This guide shows how to publish and share your recipe with others.",
+      "0": "In this example, we have just completed the cheese savories recipe. The red eye icon means this recipe is not yet published. Click on the recipe to open the recipe action bar.",
+      "1": "With the recipe action menu open, press the publish button as indicated.",
+      "2": "Zahwa asks you to confirm you want to publish the recipe.",
+      "3": "The recipe is published so the red eye has vanished. Now let's share it opening the action bar again.",
+      "4": "This time we'll press the share button as indicated.",
+      "5": "Now we can choose the method to share.",
+      "6": "This is an example using Facebook.",
+      "7": "This is an example of sending a link to the recipe via a text message. The web link will open a web-based recipe player."
+    },
+    "DISCOVER": {
+      "TITLE": "Finding recipes",
+      "DESC": "How to find exciting new recipes with the map and search features.",
+      "0": "Finding recipes is easy. If there's nearby recipes you'll see them on the map. Otherwise press the search icon as indicated.",
+      "1": "The tags and languages that appear are from nearby recipes. You can also type to search.",
+      "2": "Click on a tag and recipe search 'hits' will appear. You can toggle the search tags between all or any.",
+      "3": "Click on a recipe to view more details. Here you can press the download button. This will turn into a play button when the recipe is ready to play."
+    },
+    "TRANSLATE": {
+      "TITLE": "Translate",
+      "DESC": "Learn how to translate recipes into your own language.",
+      "0": "Touch on a recipe to open the action bar. Select the translate icon",
+      "1": "Select a language for this translation by entering a new language or touching on previously used language.",
+      "2": "The translate recipe activity has a play button the left and a record button the right. Press the play button to hear the original.",
+      "3": "The progress bar will move as you listen. Lift off and press again if you want to repeat what you heard.",
+      "4": "When you're ready, press the record button to record your translation. You can pause and resume, or undo the recording by pressing the X button.",
+      "5": "When you get to the end of the recipe, you can accept your translation",
+      "6": "Zahwa will begin playing so you can review your translation. You can cancel and start again or accept to complete the recipe translation."
+    },
+    "FORK": {
+      "TITLE": "Copy and Change",
+      "DESC": "How to make your own version of an existing recipe.",
+      "0": "Open the recipe action bar and press the copy icon.",
+      "1": "Confirm you wish to use these photos.",
+      "2": "You can now reorder the photos, delete photos and import new photos with the picture icon.",
+      "3": "The rest of the process is just like making a new recipe.",
+      "4": "Press the next step, record, and select a language.",
+      "5": "Use the recipe recorder to record your voice while you step through your images.",
+      "6": "Proceed recording to the last slide, then press accept. Zahwa will play a preview of the recorded recipe.",
+      "7": "Name, describe and tag your recipe to finish.",
+      "8": "Your new recipe will appear on the home page."
+    }
   }
 }

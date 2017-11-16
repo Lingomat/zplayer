@@ -38,8 +38,98 @@
     "3": "One of our goals is to share cultural knowledge across languages. The app provides the means to perform oral translations of recipes in a manner similar to the Aikuma Android app. Zahwa is part of, or a continuation of, the Aikuma Project which seeks to employ cutting edge technologies to accelerate the documentation of endangered languages.",
     "4": "Zahwa is the first of a new kind of language documentation tool which we call language documentation 2.0, loosely after the Web 2.0. Traditionally, digital tools for language documentation are used by experts. With Zahwa, we hope to engage ordinary speakers of small languages. Our aim is for Zahwa to be genuinely useful to speakers by itself, but to also contribute towards a central data store. Eventually, different kinds of apps will connect to the data store.",
     "5": "The Zahwa app was conceived by Amina Mettouchi and Steven Bird at the Digital Tools and Methods Summit at the University of Melbourne in June 2016. Zahwa was developed by Mat Bettinson, a PhD candidate at the University of Melbourne.",
-    "6": "",
-    "7": "",
+    "6": "Zahwa is supported by the Arc Centre of Excellence for the Dynamics of Language (CoEDL), the National Science Foundation (NSF) and the Australia Government via the Australian Postgraduate Award scheme (APA).",
+    "7": "Special thanks to the Saisiyat community in rural North Western Taiwan. This project would not have been possible without their enthusiasm for maintaining their own language, and their great hospitality and patience.",
     "8": ""
+  },
+  "BLOG": {
+    "TITLE": "博客（英文）"
+  },
+  "FAQ": {
+    "TITLE": "常問問題",
+    "Q0": "Will there be an iPhone version?",
+    "A0": "Maybe. Zahwa is a hybrid app so making an iPhone version fairly straight forward. However it requires some effort, and Apple hardware, which I don't have.",
+    "Q1": "Does Zahwa work offline?",
+    "A1": "Yes! Zahwa was built with the assumption that internet access is temporary. There are settings to select automatic, manual or Wi-Fi sync.",
+    "Q2": "Can I help translate the app into my language?",
+    "A2": "Absolutely. Get in touch.",
+    "Q3": "Is Zahwa open source?",
+    "A3": "The entire app probably wont be OS, but a goal of this research is to produce reusable OS components to accelerate language app development. There will be more happening in 2018.",
+    "Q4": "Can I access the data?",
+    "A4": "Zahwa has a backup/export feature that packs up a recipe into a zip file. This contains all of the images, audio files and metadata in json files. If you mean accessing the synced data online, a public API is in the works but it's not currently a priority. I'm also planning to export Zahwa data to a more traditional archive and that might be easier to interact with depending on what you want to do.",
+    "Q5": "What technology was used to build Zahwa?",
+    "A5": "Zahwa is an Ionic app. That means it's an Angular web app, written in Typescript, bundled with Cordova and a number of native plugins. The online database is built on Firebase and Google cloud storage."
+  },
+  "RESEARCH": {
+    "TITLE": "研究"
+  },
+  "HELP": {
+    "TITLE": "幫助",
+    "INTRO": "這些幫助指南將告訴你一切你需要知道使用雜碗。",
+    "OVERVIEW": {
+      "TITLE": "入門",
+      "DESC": "從這裡開始您的第一個食譜的基礎知識。",
+      "0": "歡迎來到雜碗，主要有三個選項卡:主頁選項卡顯示您保存的食譜。",
+      "1": "《地圖》選項卡顯示以您為中心的地圖，附近的食譜將出現在此地圖上。",
+      "2": "第三個選項卡是《廚房》，您可以在自己的食譜上工作，按大+按鈕創建您的第一個配方。",
+      "3": "這將觸發一個照片選擇器,選擇你想使用的配方照片",
+      "4": "在下一個視圖中，您可以拖動圖像進行排序，或通過拖動到垃圾圖標刪除圖像。",
+      "5": "如果你觸摸一個圖像，更大的預覽窗口可以讓你選擇這個食譜作為封面圖像，當你的食譜出現在搜索和地圖上時，別人會看到這個封面圖像。",
+      "6": "導入照片後，您完成了創建配方的第一步，接下來是錄製音頻。",
+      "7": "按錄音配方首先會問你正在使用哪種語言，開始輸入查看自動完成的結果，點擊你想要的語言，然後按打勾圖標",
+      "8": "在配方錄音機中，您可以看到一個大的圖像和一個縮略圖，按錄製按鈕，然後在您描述配方時瀏覽圖像。",
+      "9": "你可以在大的圖像上畫手，以引起對圖像中任何事物的注意。",
+      "10": "你必須記錄最後一張圖片的權利，然後按下打勾接受。",
+      "11": "錄音機進入錄音模式，按播放鍵可以聽到您的錄音，如果您想重新錄音，只需按下左側的X.",
+      "12": "已經完成了一個錄音，你已經完成了第二步。現在剩下的就是命名和標記你的配方。",
+      "13": "輸入您的食譜名稱，描述並在標籤框中輸入以添加標籤。您現在不需要添加描述和標籤，如果您願意，可以添加這些描述和標籤。",
+      "14": "當你輸入標籤時，一定要觸摸標籤來選擇它們。",
+      "15": "雜碗按下勾號後，會告訴你配方已經完成，並且已經移到了主屏幕上。",
+      "16": "完成的配方仍然可以通過觸摸主頁上的配方進行編輯和改進，請參閱下一個發布和共享指南。"
+    },
+    "SHARE": {
+      "TITLE": "發布和共享",
+      "DESC": "本指南顯示如何發布和分享您的配方與他人。",
+      "0": "在這個例子中，我們剛剛完成了奶酪配方，紅眼圖標表示這個配方還沒有發布，點擊配方打開配方操作欄。",
+      "1": "在配方操作菜單打開的情況下，如圖所示按下發布按鈕。",
+      "2":"雜碗問你確認你要發布配方",
+      "3":"食譜出版了，所以紅眼已經消失了，現在讓我們分享吧，再次打開操作欄",
+      "4":"這一次，我們將按指示按分享按鈕",
+      "5":"現在我們可以選擇分享的方法",
+      "6":"這是一個使用Facebook的例子",
+      "7":"這是一個通過短信發送鏈接到食譜的例子，網頁鏈接將打開一個基於網絡的食譜播放器。"
+    },
+    "DISCOVER": {
+      "TITLE": "尋找食譜",
+      "DESC": "如何找到與地圖和搜索功能令人興奮的新食譜。",
+      "0": "尋找食譜很容易，如果有附近的食譜，你會在地圖上看到它們，否則按搜索圖標所示。",
+      "1": "顯示的標籤和語言來自附近的食譜，也可以鍵入搜索。",
+      "2": "點擊標籤和配方搜索'點擊'將出現。你可以切換搜索標籤之間的所有或任何。",
+      "3": "點擊食譜查看更多細節，在這裡你可以按下載按鈕，當食譜準備好播放時，這將變成播放按鈕。"
+    },
+    "TRANSLATE": {
+      "TITLE": "翻譯",
+      "DESC": "了解如何將食譜翻譯成您自己的語言。",
+      "0": "“觸摸食譜打開操作欄。選擇翻譯圖標",
+      "1": "通過輸入一種新的語言或觸摸以前使用的語言來選擇該翻譯的語言",
+      "2": "翻譯配方活動左邊有一個播放按鈕，右邊有一個錄音按鈕，按播放鍵聽到原稿。",
+      "3": "進度條會隨著你的收聽而移動，如果你想重複你所聽到的，請提起並再次按下。",
+      "4": "準備就緒後，按錄音鍵記錄翻譯，可以暫停和恢復，或按X鍵撤銷錄音。",
+      "5": "當你到了食譜的最後，你可以接受你的翻譯",
+      "6": "雜碗將開始播放，所以你可以查看你的翻譯，你可以取消並重新開始或接受完成配方翻譯"
+    },
+    "FORK": {
+      "TITLE": "複製並修改",
+      "DESC": "如何使自己的版本的現有食譜。",
+      "0": "打開配方操作欄並按下複製圖標",
+      "1": "確認你想使用這些照片",
+      "2": "您現在可以重新排列照片，刪除照片並導入帶有圖片圖標的新照片。",
+      "3": "其餘的過程就像製作一個新的配方。",
+      "4": "按下一步，錄製，選擇一種語言。",
+      "5": "使用配方錄音機記錄你的聲音，當你通過你的圖像。",
+      "6": "繼續錄製最後一張幻燈片，然後按接受。雜碗將播放錄製的配方的預覽。",
+      "7": "提供名字，描述並標記你的食譜完成。",
+      "8": "你的新配方將出現在主頁上。"
+    }
   }
 }

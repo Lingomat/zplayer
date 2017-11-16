@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'HELP.TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="wrapper">
+    <div class="centerstrip">
+      <div class="helpintro pad">
+        {{ 'HELP.INTRO' | translate }}
+      </div>
+      <div class="helplist">
+        <div *ngFor="let i of hc" (click)="open($event, i)" class="helpitem">
+          <div class="helpheader">
+            <div class="image">
+              <ion-icon *ngIf="i.icon" [name]="i.icon"></ion-icon>
+              <img *ngIf="i.image" [src]="i.image" />
+            </div>
+            <div class="textlines">
+              <div class="subhead2 textline">
+                {{ getTransString(i, 'TITLE') | translate }}
+              </div>
+              <div class="paragraphb textline">
+                {{ getTransString(i, 'DESC') | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="helpcontent">
+            <div *ngFor="let image of getImages(i)" class="helppanel">
+              <div class="imagebox">
+                <div class="himage" [style.background-image]="image.source"></div>
+                <div class="helptext">{{ image.text | translate }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

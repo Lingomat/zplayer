@@ -1,0 +1,95 @@
+page-help {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .centerstrip {
+      display: flex;
+      max-width: 1000px;
+      flex-shrink: 1;
+      flex-direction: column;
+    }
+  }
+  .helpintro {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .helplist {
+    display: flex;
+    flex-direction: column;
+    .helpitem {
+      .helpheader {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid color($colors, primary);
+        padding: 5px;
+        align-items: center;
+        height: 60px;
+        .image {
+          width: 50px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          flex-shrink: 0;
+          ion-icon {
+            font-size: 3rem;
+            padding-right: 5px;
+            color: color($colors, primary);
+            filter: drop-shadow(1px 1px 1px color($colors, dark));
+          }
+          img {
+            width: 35px;
+            filter: drop-shadow(1px 1px 1px color($colors, dark));
+          }
+        }
+        .textlines {
+          .title {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+    .helpcontent {
+      display: flex;
+      flex-direction:  row;
+      flex-wrap: wrap;
+      .imagebox {
+        margin-top: 10px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items:  center;
+        .himage {
+          display: flex;
+          flex-grow: 1;
+          width: 260px;
+          height: 480px;
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        .helptext {
+          padding: 0px 5px;
+          text-align: center;
+          font-size: 15px;
+          font-weight: 500;
+          color: color($colors, dark);
+        }
+      }
+    }
+  }
+  
+  .ion-md-falanguage {
+    font: normal normal normal 3rem/1 FontAwesome;
+  }
+  .ion-md-falanguage:before {
+    content: '\f1ab'
+  }
+  .ion-md-faclone:before {
+    content: '\f24d'
+  }
+  .ion-md-faclone {
+    font: normal normal normal 14px/1 FontAwesome;
+  }
+}

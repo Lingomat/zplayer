@@ -6,6 +6,7 @@ import { AndroidPage } from '../pages/android/android'
 import { BlogPage } from '../pages/blog/blog'
 import { FaqPage } from '../pages/faq/faq'
 import { ResearchPage } from '../pages/research/research'
+import { HelpPage } from '../pages/help/help'
 
 @Component({
   templateUrl: 'app.html'
@@ -24,6 +25,10 @@ export class MyApp {
     {
       title: "ANDROID.TITLE",
       page: AndroidPage
+    },
+    {
+      title: "HELP.TITLE",
+      page: HelpPage
     },
     {
       title: "FAQ.TITLE",

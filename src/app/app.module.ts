@@ -14,6 +14,7 @@ import { DetailsPage } from '../pages/details/details'
 import { BlogPage } from '../pages/blog/blog'
 import { FaqPage } from '../pages/faq/faq'
 import { ResearchPage } from '../pages/research/research'
+import { HelpPage } from '../pages/help/help'
 
 import { GestateComponent } from '../components/gestate/gestate'
 import { RecipeSlidesComponent } from '../components/recipe-slides/recipe-slides'
@@ -72,7 +73,8 @@ export function createTranslateLoader(http: Http) {
     LocaleFabComponent,
     BlogPage,
     FaqPage,
-    ResearchPage
+    ResearchPage,
+    HelpPage
   ],
   imports: [
     BrowserModule,
@@ -104,7 +106,8 @@ export function createTranslateLoader(http: Http) {
     DetailsPage,
     BlogPage,
     FaqPage,
-    ResearchPage
+    ResearchPage,
+    HelpPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
