@@ -51,7 +51,7 @@
   "FAQ": {
     "TITLE": "FAQ",
     "Q0": "Will there be an iPhone version?",
-    "A0": "Maybe. Zahwa is a hybrid app so making an iPhone version fairly straight forward. However it requires some effort, and Apple hardware, which I don't have.",
+    "A0": "Maybe. As a hybrid app so making an iPhone version fairly straight forward. However it requires Apple hardware and a reason/motivation, of which I have neither.",
     "Q1": "Does Zahwa work offline?",
     "A1": "Yes! Zahwa was built with the assumption that internet access is temporary. There are settings to select automatic, manual or Wi-Fi sync.",
     "Q2": "Can I help translate the app into my language?",

@@ -46,7 +46,12 @@ export class MyApp {
 
   constructor(public translate: TranslateService) {
     this.translate.addLangs(['en', 'zh-TW'])
-    this.translate.use('en')
+    let lang = window.navigator.language.slice(0,2)
+    if (lang === 'zh') {
+      this.translate.use('zh-TW')
+    } else {
+      this.translate.use('en')
+    }
   }
 
   openPage(page: any) {

@@ -9,23 +9,23 @@
     "TITLE": "雜碗App"
   },
   "VIEWER": {
-    "LOADING": "Loading, please wait..."
+    "LOADING": "加載請稍候..."
   },
   "TRANSLIST": {
-    "BY": "Translation by:",
-    "ORIGINALBY": "Original Recipe by:",
-    "ADD": "Add new translation"
+    "BY": "翻譯者",
+    "ORIGINALBY": "訣竅原作者",
+    "ADD": "加新的翻譯"
   },
   "RECIPEDETAILS": {
-    "TITLE": "Recipe Details"
+    "TITLE": "訣竅細節"
   },
   "RECIPE": {
-    "TAGS": "Tags",
-    "AUTHOR": "By:",
-    "SHARE": "Share Recipe"
+    "TAGS": "標籤",
+    "AUTHOR": "作者：",
+    "SHARE": "分享"
   },
   "LANGUAGE": {
-    "LANGUAGES": "Languages"
+    "LANGUAGES": "語言"
   },
   "RECIPEEDIT": {
     "DESC": "Description"
@@ -33,10 +33,10 @@
   "TEST" : "This is a long paragraph with Zahwa in it and 雜碗 as well.",
   "ABOUT": {
     "TITLE": "關於",
-    "1": "Zahwa is an Android mobile app to document proceedural discourse in small languages. That's a fancy way of saying that Zahwa documents spoken instructions on how to do something, such as how to cook a recipe. By small languages, we mean languages spoken by minorities, indigeonous communities and otherwise endangered languages. Zahwa was originally conceived to document cooking recipes but it can be used to document any how-to knowledge.",
-    "2": "Zahwa's basic function is to import a series of photos. The user then narrates the images as a form of slide-show, advancing or swiping through the slides as they speak. The app also records touch gestures as the user speaks. This is helpful to draw attention to certain items in a picture as they are referred to in speech, but gestures can also indicate things like speed and direction",
-    "3": "One of our goals is to share cultural knowledge across languages. The app provides the means to perform oral translations of recipes in a manner similar to the Aikuma Android app. Zahwa is part of, or a continuation of, the Aikuma Project which seeks to employ cutting edge technologies to accelerate the documentation of endangered languages.",
-    "4": "Zahwa is the first of a new kind of language documentation tool which we call language documentation 2.0, loosely after the Web 2.0. Traditionally, digital tools for language documentation are used by experts. With Zahwa, we hope to engage ordinary speakers of small languages. Our aim is for Zahwa to be genuinely useful to speakers by itself, but to also contribute towards a central data store. Eventually, different kinds of apps will connect to the data store.",
+    "1": "雜碗是一個Android手機應用程序，用於記錄訣竅的解釋。 雜碗提供了關於如何做某事的口頭指示，例如如何烹飪食譜。 主要目的是記錄小語言，例如 少數民族，原住民社區，瀕危語言等。Zahwa最初被設想為記錄烹飪食譜，但它可以用來記錄任何如何知識。",
+    "2": "雜碗的基本功能是導入一系列照片。 用戶隨後會在圖像滑過時對其進行敘述。 該應用程序還記錄每個圖像的觸摸手勢。 這有助於吸引人們對圖片中的事物的關注，並且還可以指示行動的速度和方向。",
+    "3": "我們的目標之一是跨語言分享文化知識。 該應用程序允許口頭翻譯類似於早期的《Aikuma》 Android應用程序。 雜碗是Aikuma項目的延續，該項目旨在利用尖端技術來加速對瀕危語言的記錄。",
+    "4": "雜碗是第一種新的語言文檔工具，我們稱之為語言文檔2.0，以Web 2.0命名。 傳統上，用於語言文檔的數字工具只能由專家使用。 相反，我們希望能夠邀請普通的小語種人士。 我們的目標是讓這些工具對社區真正有用，同時也為語言科學，教學等等提供結構化的文件記錄。 最終，我們預計許多應用程序連接到統一的數據存儲。",
     "5": "The Zahwa app was conceived by Amina Mettouchi and Steven Bird at the Digital Tools and Methods Summit at the University of Melbourne in June 2016. Zahwa was developed by Mat Bettinson, a PhD candidate at the University of Melbourne.",
     "6": "Zahwa is supported by the Arc Centre of Excellence for the Dynamics of Language (CoEDL), the National Science Foundation (NSF) and the Australia Government via the Australian Postgraduate Award scheme (APA).",
     "7": "Special thanks to the Saisiyat community in rural North Western Taiwan. This project would not have been possible without their enthusiasm for maintaining their own language, and their great hospitality and patience.",
@@ -48,7 +48,7 @@
   "FAQ": {
     "TITLE": "常問問題",
     "Q0": "Will there be an iPhone version?",
-    "A0": "Maybe. Zahwa is a hybrid app so making an iPhone version fairly straight forward. However it requires some effort, and Apple hardware, which I don't have.",
+    "A0": "Maybe. As a hybrid app so making an iPhone version fairly straight forward. However it requires Apple hardware and a reason/motivation, of which I have neither.",
     "Q1": "Does Zahwa work offline?",
     "A1": "Yes! Zahwa was built with the assumption that internet access is temporary. There are settings to select automatic, manual or Wi-Fi sync.",
     "Q2": "Can I help translate the app into my language?",

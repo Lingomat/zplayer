@@ -59,11 +59,6 @@ export class HelpPage {
     return i
   }
 
-  getImageSource(num: number): string {
-    return 'url(./assets/help/' + this.hc.root.toLowerCase() + 
-    '/' + this.lang + 
-    '/' + num.toString() + '.webp)' 
-  }
   getTransString(item: {root: string, count: number}, type: string): string {
     return 'HELP.' + item.root + '.' + type
   }
