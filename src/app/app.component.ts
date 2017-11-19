@@ -40,7 +40,7 @@ export class MyApp {
     },
     {
       title: "BLOG.TITLE",
-      page: 'http://www.formatosa.com'
+      page: BlogPage
     }
   ]
 

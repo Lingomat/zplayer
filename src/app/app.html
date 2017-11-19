@@ -1,4 +1,4 @@
-<locale-fab></locale-fab>
+
 <ion-split-pane>
   <!--  our side menu  -->
   <ion-menu [content]="content" >
@@ -8,6 +8,7 @@
       </ion-toolbar> -->
     </ion-header>
     <ion-content class="menucontent">
+      <locale-fab></locale-fab>
       <ion-list class="menuitems">
         <button *ngFor="let mi of menuItems" ion-button block outline
             (click)="openPage(mi.page)">
