@@ -27,6 +27,14 @@ page-about {
             padding: 10px 15px;
             font-size: 15px;
             font-weight: 400;
+            a:link {
+              color: color($colors,primary);
+              font-weight: 500;
+            }
+            a:visited {
+              color: color($colors,primary);
+              font-weight: 500;
+            }
           }
         }
       }
