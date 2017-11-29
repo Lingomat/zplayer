@@ -7,6 +7,7 @@ import { BlogPage } from '../pages/blog/blog'
 import { FaqPage } from '../pages/faq/faq'
 import { ResearchPage } from '../pages/research/research'
 import { HelpPage } from '../pages/help/help'
+import { FeedbackPage } from '../pages/feedback/feedback'
 
 @Component({
   templateUrl: 'app.html'
@@ -36,11 +37,15 @@ export class MyApp {
     },
     {
       title: "RESEARCH.TITLE",
-      page: ResearchPage
+      page: 'ResearchPage'
+    },
+    {
+      title: "BUGREPORT",
+      page: 'gplus'
     },
     {
       title: "BLOG.TITLE",
-      page: BlogPage
+      page: 'blog'
     }
   ]
 
@@ -56,7 +61,21 @@ export class MyApp {
 
   openPage(page: any) {
     if (typeof page === 'string') {
-      window.location.href = page
+      let lang = this.translate.currentLang.slice(0,2)
+      if (page === 'gplus') {
+        if (lang === 'zh') {
+          window.open('https://plus.google.com/communities/115628487219035842652/stream/d7383e33-ee00-4f90-8597-cf945d794bb7')
+        } else {
+          window.open('https://plus.google.com/communities/115628487219035842652/stream/27625609-5e1e-4059-8703-e6c13e46f32d')
+        }
+      } else if (page === 'blog') {
+        if (lang === 'zh') {
+          window.open('https://translate.google.com/translate?sl=en&tl=zh-TW&js=y&prev=_t&hl=en&ie=UTF-8&u=https%3A%2F%2Fformatosa.weebly.com%2F&edit-text=&act=url')
+        } else {
+          this.rootPage = BlogPage
+        }
+      }
+      //window.location.href = page
     } else {
       this.rootPage = page
     }

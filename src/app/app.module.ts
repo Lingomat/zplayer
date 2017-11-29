@@ -15,6 +15,7 @@ import { BlogPage } from '../pages/blog/blog'
 import { FaqPage } from '../pages/faq/faq'
 import { ResearchPage } from '../pages/research/research'
 import { HelpPage } from '../pages/help/help'
+import { FeedbackPage } from '../pages/feedback/feedback'
 
 import { GestateComponent } from '../components/gestate/gestate'
 import { RecipeSlidesComponent } from '../components/recipe-slides/recipe-slides'
@@ -74,7 +75,8 @@ export function createTranslateLoader(http: Http) {
     BlogPage,
     FaqPage,
     ResearchPage,
-    HelpPage
+    HelpPage,
+    FeedbackPage
   ],
   imports: [
     BrowserModule,
@@ -107,7 +109,8 @@ export function createTranslateLoader(http: Http) {
     BlogPage,
     FaqPage,
     ResearchPage,
-    HelpPage
+    HelpPage,
+    FeedbackPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

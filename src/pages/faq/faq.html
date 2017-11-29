@@ -12,8 +12,8 @@
   <div class="wrapper">
     <div class="centerstrip">
       <div *ngFor="let f of faq">
-        <div class="question">{{ f.q | translate }}</div>
-        <div class="answer">{{ f.a | translate }}</div>
+        <div class="question" [innerHTML]="f.q | translate | highlight : hlt"></div>
+        <div class="answer" [innerHTML]="f.a | translate | highlight : hlt"></div>
       </div>
     </div>
   </div>
