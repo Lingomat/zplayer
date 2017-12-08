@@ -6,7 +6,7 @@
     "TITLE": "Home"
   },
   "ANDROID": {
-    "TITLE": "Zahwa App",
+    "TITLE": "Download App",
     "AVAILABLE": "Zahwa is available on Google Play for Android devices 5.0 and up. Click the button to go to the Play Store page to install.",
     "BETA1": "By default Zahwa has beta updates disabled. If you're willing to accept the risk, you can enable beta app updates in the settings.",
     "BETA2": "Beta updates download in the background silently and apply when you restart the app."
