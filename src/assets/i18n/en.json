@@ -20,7 +20,8 @@
     "ADD": "Add new translation"
   },
   "RECIPEDETAILS": {
-    "TITLE": "Recipe Details"
+    "TITLE": "Recipe Details",
+    "NONE": "None"
   },
   "RECIPE": {
     "TAGS": "Tags",

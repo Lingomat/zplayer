@@ -1,10 +1,5 @@
 page-details {
-  ion-content {
-    max-width: 400px;
-    .scroll-content {
-      overflow-y:hidden;
-    }
-  }
+
   .titlerow {
     display: flex;
     flex-basis: row;
@@ -50,7 +45,6 @@ page-details {
     margin-bottom: 5px;
   }
 
-
   .daterow {
     padding: 2px 5px 0px 5px;
     display: flex;
@@ -58,14 +52,32 @@ page-details {
     flex-grow: 1;
     justify-content: space-between;
   }
-  tag-edit {
+  tag-edit.normal {
     .tageditwrapper {
       padding: 2px 0px 2px 5px;
+      ion-chip.chip-md {
+        line-height: 24px;
+        height:  24px;
+        font-size: 13px;
+        margin-right: 3px;
+        ion-label {
+          margin: 0px 8px;
+        }
+      }
     }
   }
   lang-edit {
     .langeditwrapper {
       padding: 2px 0px 2px 5px;
+      ion-chip.chip-md {
+        line-height: 24px;
+        height:  24px;
+        font-size: 13px;
+        margin-right: 3px;
+        ion-label {
+          margin: 0px 8px;
+        }
+      }
     }
   }
   status-icons {
@@ -76,11 +88,71 @@ page-details {
   .padding {
     padding: 2px 5px 2px 5px;
   }
-}
-  
 
-.popover-md.details .popover-content {
-  overflow-y: hidden;
-  width: 400px;
-  border-radius: 20px;
+  .recipelist {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding:  5px;
+    .recipehit {
+      padding: 2px 0px;
+      display: flex;
+      flex-direction: row;
+      height: 80px;
+      flex-grow: 1;
+      border-bottom: 1px solid color($colors, primary);
+      .textlines {
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        .langeditwrapper {
+          padding-left: 0px;
+        }
+        .chipwrap {
+          ion-chip.chip-md {
+            line-height: 20px;
+            height:  20px;
+            font-size: 11px;
+            ion-label {
+              margin: 0px 5px;
+            }
+          }
+        }
+      }
+      .bybox {
+        display:  flex;
+        flex-direction: column;
+        width: 100px;
+        align-items: flex-end;
+        .avatar {
+          background-position: center;
+          background-size: cover;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+        .byline {
+          color: color($colors, primary);
+          font-size: 1rem;
+          font-weight: 400;
+        }
+      }
+      
+      .thumb {
+        background-position: center;
+        background-size: cover;
+        width: 75px;
+        height: 75px;
+        flex-shrink: 0;
+      }
+    }
+  }
+ 
 }
+
+// .popover-md.details .popover-content {
+//   overflow-y: hidden;
+//   //min-width: 400px;
+//   border-radius: 20px;
+// }

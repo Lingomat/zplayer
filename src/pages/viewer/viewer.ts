@@ -21,11 +21,6 @@ export class ViewerPage implements OnInit, OnDestroy {
   showViewer: boolean = false
   selectedTranslation: string = null
   translations: Translation[] = []
-  lottieConfig = {
-    path: './assets/anim/cooking_app.json',
-    autoplay: true,
-    loop: true
-  }
   anim: any
   workingMessage: string = null
   users: {[key: string]: PublicUserData}
@@ -73,10 +68,4 @@ export class ViewerPage implements OnInit, OnDestroy {
       this.selectedTranslation = transaction.translation === "source" ? "source" : transaction.translation._id
     }
   }
-
-  handleAnimation(anim: any) {
-    this.anim = anim
-    this.anim.setSpeed(0.75)
-  }
-
 }

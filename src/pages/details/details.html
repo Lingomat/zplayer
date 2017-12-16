@@ -1,32 +1,52 @@
 <!-- <ion-header>
   <ion-navbar>
     <ion-title>{{ 'RECIPEDETAILS.TITLE' | translate }}</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="closeModal()">
+            <ion-icon item-right name="ios-close-outline"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
-</ion-header> -->
+</ion-header>  -->
 <ion-content>
-  <ion-item>
-    <ion-avatar item-left>
-      <img [src]="userInfo.photoURL">
-    </ion-avatar>
-    <div class="headline2">{{ recipe.name }}</div>
-    <div class="subhead2">{{ 'RECIPE.AUTHOR' | translate }} {{ userInfo.userName }}</div>
-  </ion-item>
-  <div class="recipeimage"
-      [style.background-image]="backgroundImage"
-      (click)="pressedDownPlay()">
-      <button ion-button clear icon-only color="favorite" [disabled]="downloading">
+  <div *ngIf="!haveHit; else singlehit" class="recipelist">
+    <div *ngFor="let rh of recipeHits; let sh = index" (click)="clickHit(sh)" class="recipehit">
+      <div class="thumb" [style.background-image]="getBgImage(rh.imageURL)">
+      </div>
+      <div class="textlines">
+          <div class="headline2">{{ rh.recipe.name }}</div>
+          <lang-edit [readonly]="true" [nohead]="true" [languages]="rh.recipe.languages"></lang-edit>
+      </div>
+      <div class="bybox">
+        <div class="avatar" [style.background-image]="getBgImage(rh.userInfo.photoURL)"></div>
+        <div class="byline">{{ rh.userInfo.userName }}</div>
+      </div>
+    </div>
+
+  </div>
+  <ng-template #singlehit>
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="userInfo.photoURL">
+      </ion-avatar>
+      <div class="headline2">{{ recipe.name }}</div>
+      <div class="subhead2">{{ 'RECIPE.AUTHOR' | translate }} {{ userInfo.userName }}</div>
+    </ion-item>
+    <div class="recipeimage" [style.background-image]="backgroundImage" (click)="pressedDownPlay()">
+      <button ion-button clear icon-only color="favorite">
         <ion-icon name="play"></ion-icon>
       </button>
-  </div>
-  <status-icons 
-    [recipeData]="recipe" 
-    [badges]="['likes', 'mediaSet', 'duration', 'translations']"
-    [transCount]="recipeHit.translations.length"></status-icons>
-  <div class="daterow">
-    <div class="subhead2">{{ 'RECIPEEDIT.DESC' | translate }}</div>
-    <div class="subheadp">{{ displayCreated(recipe?.created) }}</div>
-  </div>
-  <div class="paragraph padding">{{ recipe.description }} </div>
-  <tag-edit [readonly]="true" [tags]="recipe.tags"></tag-edit>
-  <lang-edit [readonly]="true" [languages]="recipe.languages"></lang-edit>
+    </div>
+    <status-icons [recipeData]="recipe" [badges]="['likes', 'mediaSet', 'duration', 'translations']" [transCount]="recipeHit.translations.length"></status-icons>
+    <div class="daterow">
+      <div class="subhead2">{{ 'RECIPEEDIT.DESC' | translate }}</div>
+      <div class="subheadp">{{ displayCreated(recipe?.created) }}</div>
+    </div>
+    <div class="paragraph padding">{{ recipe.description }} </div>
+    <div *ngIf="!recipe.description" class="paragraph padding">{{ 'RECIPEDETAILS.NONE' | translate }} </div>
+    <tag-edit [readonly]="true" [tags]="recipe.tags" class="normal"></tag-edit>
+    <lang-edit [readonly]="true" [languages]="recipe.languages" class="normal"></lang-edit>
+  
+</ng-template>
+
 </ion-content>

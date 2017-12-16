@@ -20,12 +20,9 @@ page-viewer {
       height: 50px;
     }
   }
-  .logospinner {
-    pointer-events: auto;
-    top: auto;
-    left: auto;
-    right: 2px;
-    bottom: 0;
+  ion-spinner * {
+    width: 75px;
+    height: 75px;
   }
   ion-content {
     .scroll-content {

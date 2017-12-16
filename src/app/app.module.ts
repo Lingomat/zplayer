@@ -44,7 +44,6 @@ import { GlobalsProvider } from '../providers/globals/globals'
 
 import { HighlightPipe} from '../pipes/highlight/highlight'
 
-import { LottieAnimationViewModule } from 'ng-lottie'
 import { FirebaseProvider } from '../providers/firebase/firebase'
 
 export function createTranslateLoader(http: Http) {
@@ -80,7 +79,6 @@ export function createTranslateLoader(http: Http) {
   ],
   imports: [
     BrowserModule,
-    LottieAnimationViewModule.forRoot(),
     IonicModule.forRoot(MyApp, {iconMode: 'md'}, {
       links: [
         { component: ViewerPage, name: 'view', segment: 'r/:handleId'}

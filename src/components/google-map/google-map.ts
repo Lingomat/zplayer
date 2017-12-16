@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core'
 import { FirebaseProvider, SmallRecipeHit, Language } from '../../providers/firebase/firebase'
 import { } from 'googlemaps'
+import * as MarkerClusterer from 'marker-clusterer-plus'
 
 declare var google
 declare var MarkerClusterer // has been hacked in by page script source... sigh.
@@ -11,7 +12,7 @@ declare var MarkerClusterer // has been hacked in by page script source... sigh.
 })
 export class GoogleMapComponent {
   @ViewChild('map') mapElement: ElementRef
-  @Output() selected = new EventEmitter<{selected: SmallRecipeHit, evt: MouseEvent}>()
+  @Output() selected = new EventEmitter<{selected: SmallRecipeHit[], evt: MouseEvent}>()
   geoFire: any
   geoQuery: any
   position: {latitude: number, longitude: number}
@@ -27,6 +28,7 @@ export class GoogleMapComponent {
   infoWindow: google.maps.InfoWindow
   recipeCache: Map<string, SmallRecipeHit> = new Map()
   mouseEvent: MouseEvent
+  maxzoom: number = 14
   /*
     C O N S T R U C T O R
   */
@@ -42,6 +44,7 @@ export class GoogleMapComponent {
   }
   
   initGeoFire(pos: [number, number]) {
+
     const addRecipe = (recipeId: string, latitude: number, longitude: number) => {
       if (!this.markers.has(recipeId)) {
         let marker: google.maps.Marker = new google.maps.Marker({
@@ -49,24 +52,18 @@ export class GoogleMapComponent {
           icon: './assets/img/map-marker3.png'
           //map: this.map
         })
+        marker['recipeId'] = recipeId
         marker.addListener('click', (evt: google.maps.MouseEvent) => {
           console.log('marker listen')
           console.log('map zoom', this.map.getZoom())
-          if (this.recipeCache.has(recipeId)) {
-            let hit = this.recipeCache.get(recipeId)
-            this.selected.emit({selected: hit, evt: this.mouseEvent}) // use stashed mouse event
-          } else {
-            this.fb.fetchRecipeHit(recipeId)
-            .then(rs => {
-              if (rs) {
-                this.recipeCache.set(recipeId, rs)
-                this.selected.emit({selected: rs, evt: this.mouseEvent})
-              }
-            })
-          }
+          this.cacheRecipe(recipeId)
+          .then((hit) => {
+            this.selected.emit({selected: [hit], evt: this.mouseEvent}) // use stashed mouse event
+          })
         })
         this.markers.set(recipeId, marker)
         this.mc.addMarker(marker)
+        this.cacheRecipe(recipeId)
       }
     }
     const removeRecipe = (recipeId: string) => {
@@ -135,6 +132,14 @@ export class GoogleMapComponent {
     }
   }
 
+  async cacheRecipe(recipeId: string): Promise<SmallRecipeHit> {
+    if (!this.recipeCache.has(recipeId)) {
+      let hit = await this.fb.fetchRecipeHit(recipeId)
+      this.recipeCache.set(recipeId, hit)
+    }
+    return this.recipeCache.get(recipeId)
+  }
+
   async initMap() {
     console.log('initMap')
     const calcDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
@@ -193,7 +198,32 @@ export class GoogleMapComponent {
       this.map.addListener('click', (evt) => {
         this.infoWindow.close()
       })
-      this.mc = new MarkerClusterer(this.map)
+      this.mc = new MarkerClusterer(this.map, [], {zoomOnClick: false})
+      google.maps.event.addListener(this.mc, "click", async (c) => {
+        // log("click: ");
+        // log("&mdash;Center of cluster: " + c.getCenter());
+        // log("&mdash;Number of managed markers in cluster: " + c.getSize());
+        let center = c.getCenter()
+        let czoom = this.map.getZoom()
+        console.log('czoom', czoom)
+        if (czoom < this.maxzoom) {
+          this.map.setZoom(czoom + 1)
+          this.map.setCenter(c.getCenter())
+          return
+        }
+        let markers = c.getMarkers()
+        let res: SmallRecipeHit[] = []
+        for (let m of markers) {
+          let rid = m['recipeId']
+          res.push(await this.cacheRecipe(rid))
+        }
+        this.selected.emit({selected: res, evt: this.mouseEvent}) // use stashed mouse event
+        // var p = []
+        // for (var i = 0; i < m.length; i++ ){
+        //   p.push(m[i].getPosition());
+        // }
+        
+      })
       console.log('init geofire')
       this.initGeoFire([this.position.latitude,this.position.longitude])
     }

@@ -1,7 +1,7 @@
 export const EnvConfig = [
   {
     "name": "development",
-    "hosts": ["localhost", "aikumazahwa-dev.firebaseapp.com"],
+    "hosts": ["aikumazahwa-dev.firebaseapp.com"],
     "fbConfig": {
       "apiKey": "AIzaSyDi8n8IZSCvAYoU3BPb3_4DwEewn4iOoYc",
       "authDomain": "aikumazahwa-dev.firebaseapp.com",
@@ -25,7 +25,7 @@ export const EnvConfig = [
   },
   {
     "name": "production",
-    "hosts": ["zahwa.aikuma.org", "aikumazahwa.firebaseapp.com"],
+    "hosts": ["localhost", "zahwa.aikuma.org", "aikumazahwa.firebaseapp.com"],
     "fbConfig": {
       "apiKey": "AIzaSyCRko-gCgl1qfcTfRWuSnZuuqx_F_t6j3g",
       "authDomain": "aikumazahwa.firebaseapp.com",

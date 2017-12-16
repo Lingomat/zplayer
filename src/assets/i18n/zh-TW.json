@@ -21,7 +21,8 @@
     "ADD": "加新的翻譯"
   },
   "RECIPEDETAILS": {
-    "TITLE": "竅門細節"
+    "TITLE": "竅門細節",
+    "NONE": "沒有"
   },
   "RECIPE": {
     "TAGS": "標籤",
