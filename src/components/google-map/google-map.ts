@@ -1,10 +1,11 @@
 import { Component, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core'
 import { FirebaseProvider, SmallRecipeHit, Language } from '../../providers/firebase/firebase'
+import { UtilProvider } from '../../providers/util/util'
 import { } from 'googlemaps'
-import * as MarkerClusterer from 'marker-clusterer-plus'
+import MarkerClusterer from 'marker-clusterer-plus'
 
 declare var google
-declare var MarkerClusterer // has been hacked in by page script source... sigh.
+//declare var MarkerClusterer // has been hacked in by page script source... sigh.
 
 @Component({
   selector: 'google-map',
@@ -33,7 +34,7 @@ export class GoogleMapComponent {
     C O N S T R U C T O R
   */
   constructor(
-    public fb: FirebaseProvider
+    public fb: FirebaseProvider, public util: UtilProvider
   ) {
     this.geoFire = this.fb.getGeoType('recipe')
   }
@@ -172,6 +173,8 @@ export class GoogleMapComponent {
       this.position = await this.getNavigatorPos()
     } catch(e) {
       console.log('map: error in getNavigatorPos()', e)
+      await this.util.presentAlert('HOME', 'LOCERROR')
+      return
     }
     console.log('got pos')
     if (this.position) {

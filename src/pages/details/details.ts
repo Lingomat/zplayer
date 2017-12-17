@@ -37,7 +37,7 @@ export class DetailsPage {
     this.recipe = this.recipeHit.recipe
     this.recipeId = this.recipe._id
     this.backgroundImage = this.sanitizer.bypassSecurityTrustStyle('url('+this.recipeHit.imageURL+')')
-    this.ref.detectChanges()
+    //this.ref.detectChanges()
   }
 
   getBgImage(url: string): SafeStyle {
@@ -46,6 +46,7 @@ export class DetailsPage {
 
   clickHit(rIndex: number) {
     this.setHit(rIndex)
+    this.ref.detectChanges()
   }
 
   displayCreated(ms: number): string {

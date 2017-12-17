@@ -3,7 +3,12 @@
     "TITLE": "雜碗項目"
   },
   "HOME": {
-    "TITLE": "首頁"
+    "TITLE": "首頁",
+    "LOCERROR": {
+      "TITLE": "無法獲得位置",
+      "MESSAGE": "我無法得到你的位置。 你否認許可？",
+      "CONFIRM": "好"
+    }
   },
   "ANDROID": {
     "TITLE": "下載APP",
@@ -13,7 +18,12 @@
  
   },
   "VIEWER": {
-    "LOADING": "加載請稍候..."
+    "LOADING": "加載請稍候...",
+    "ERROR": {
+      "TITLE": "下載問題",
+      "MESSAGE": "無法下載竅門資產。 也許網絡很慢？",
+      "CONFIRM": "好"
+    }
   },
   "TRANSLIST": {
     "BY": "翻譯者",

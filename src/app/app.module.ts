@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { ErrorHandler, NgModule } from '@angular/core'
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular'
-import { Http, HttpModule } from '@angular/http'
+import { HttpClientModule, HttpClient} from '@angular/common/http'
+import { HttpModule } from '@angular/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { MyApp } from './app.component'
@@ -46,7 +47,8 @@ import { HighlightPipe} from '../pipes/highlight/highlight'
 
 import { FirebaseProvider } from '../providers/firebase/firebase'
 
-export function createTranslateLoader(http: Http) {
+
+export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
 }
 
@@ -79,18 +81,19 @@ export function createTranslateLoader(http: Http) {
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp, {iconMode: 'md'}, {
       links: [
         { component: ViewerPage, name: 'view', segment: 'r/:handleId'}
       ],
     }),
     BrowserAnimationsModule,
-    HttpModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
-        deps: [Http]
+        deps: [HttpClient]
       }
     }),
   ],

@@ -1,6 +1,7 @@
 import { Component, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core'
 import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular'
 import { DataProvider, RecipeComplete  } from '../../providers/data/data'
+import { UtilProvider  } from '../../providers/util/util'
 import { TranslationAction } from '../../components/translation-selector/translation-selector'
 import { Recipe, RecipeAssets, Translation, PublicUserData } from '../../app/types'
 
@@ -24,7 +25,7 @@ export class ViewerPage implements OnInit, OnDestroy {
   anim: any
   workingMessage: string = null
   users: {[key: string]: PublicUserData}
-  constructor(public navCtrl: NavController,
+  constructor(public navCtrl: NavController, public util: UtilProvider,
       params: NavParams, public data: DataProvider,
       public popoverCtrl: PopoverController, public ref: ChangeDetectorRef) {
     this.handleId = params.get('handleId')
@@ -40,7 +41,17 @@ export class ViewerPage implements OnInit, OnDestroy {
 
   async init() {
     this.workingMessage = "VIEWER.LOADING"
-    let rb: RecipeComplete = await this.data.getCompleteRecipe(this.handleId)
+    let rb: RecipeComplete
+    try {
+      rb = await this.data.getCompleteRecipe(this.handleId)
+    } catch(e) {
+      this.workingMessage = null
+      await this.util.presentAlert('VIEWER', 'ERROR')
+      if (this.navCtrl.canGoBack()) {
+        this.navCtrl.pop()
+      }
+      return
+    }
     this.users = rb.users
     this.workingMessage = null
     this.recipeAssets = rb.recipeAssets

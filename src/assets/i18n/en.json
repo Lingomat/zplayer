@@ -3,7 +3,12 @@
     "TITLE": "The Zahwa Project"
   },
   "HOME": {
-    "TITLE": "Home"
+    "TITLE": "Home",
+    "LOCERROR": {
+      "TITLE": "Location error",
+      "MESSAGE": "I couldn't get your location. Did you deny permission?",
+      "CONFIRM": "Bummer"
+    }
   },
   "ANDROID": {
     "TITLE": "Download App",
@@ -12,7 +17,12 @@
     "BETA2": "Beta updates download in the background silently and apply when you restart the app."
   },
   "VIEWER": {
-    "LOADING": "Loading, please wait..."
+    "LOADING": "Loading, please wait...",
+    "ERROR": {
+      "TITLE": "Download error",
+      "MESSAGE": "Couldn't download the recipe assets. Perhaps the network is slow?",
+      "CONFIRM": "Bummer"
+    }
   },
   "TRANSLIST": {
     "BY": "Translation by:",
